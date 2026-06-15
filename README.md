@@ -1,7 +1,7 @@
 # An Explicit Evaluation of a Fibonacci Character Sum for Primes of Full Rank of Apparition
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 
 Companion repository for the paper **"An Explicit Evaluation of a Fibonacci Character Sum for Primes of Full Rank of Apparition"** by Majid Ghandali.
 
