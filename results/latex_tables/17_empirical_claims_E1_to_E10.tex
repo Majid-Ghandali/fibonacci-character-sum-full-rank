@@ -1,0 +1,17 @@
+% Auto-generated from FibChar v5
+\begin{tabular}{llllll}
+\toprule
+claim & passes & n_tested & n_violations & status & info \\
+\midrule
+E1: v_2(pi) = v_2(p+1) + 1  on DI & True & 37270 & 0 & PASS &  \\
+E2: pi = 4 alpha AND alpha odd  on Z \ DI & True & 28019 & 0 & PASS &  \\
+E3: pi = alpha  on cm_only & True & 37246 & 0 & PASS &  \\
+E4: alpha | (p+1)  for inert primes (DI U fib_only) & True & 74523 & 0 & PASS &  \\
+E5: alpha | (p-1)  for split primes (cm_only U neither) & True & 74408 & 0 & PASS &  \\
+E6: chi_p(-1) = -1  ==>  k is odd & True & 74516 & 0 & PASS &  \\
+E7: chi_p(-1) = +1  ==>  k is even & True & 74415 & 0 & PASS &  \\
+E8: S(p) = +1 if p == 1 mod 5, -1 if p == 4 mod 5  (MAIN THEOREM, full-rank cm_only) & True & 26407 & 0 & PASS &  \\
+E9 (info): |S_p| odd on cm_only with k=3 & True & 4720 & 0 & INFO & |S_p| is odd for all 4720 cm_only primes with k=3 \\
+E10 (info): 8 | S_p on fib_only with k=2 & True & 29287 & 0 & INFO & 8 | S_p for all 29287 fib_only primes with k=2 \\
+\bottomrule
+\end{tabular}
