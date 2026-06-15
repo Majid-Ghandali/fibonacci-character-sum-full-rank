@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite it using the metadata below."
+title: "An Explicit Evaluation of a Fibonacci Character Sum for Primes of Full Rank of Apparition"."
+author:
+- family-names: "Ghandali"
+  given-names: "Majid"
+  affiliation: Independent Researcher
+  orcid: "https://orcid.org/0009-0001-1097-1770"
+version: 1.0.0
+doi: 10.5281/zenodo.????
+date-released: 2026-06-14
+url: "https://github.com/Majid-Ghandali/fibonacci-character-sum-full-rank"
