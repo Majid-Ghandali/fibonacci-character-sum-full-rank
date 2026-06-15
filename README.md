@@ -10,7 +10,7 @@ for Primes of Full Rank of Apparition"** by Majid Ghandali.
 
 ## Abstract
 
-This repository accompanies the paper *An Explicit Evaluation of a Fibonacci Character Sum for Primes of Full Rank of Apparition* and provides a fully reproducible computational verification of the main theorem and the empirical claims recorded in the manuscript.
+This repository accompanies the paper *A Fibonacci Character Sum Identity for Primes of Full Rank of Apparition* and provides a fully reproducible computational verification of the main theorem and the empirical claims recorded in the manuscript.
 
 For an odd prime \(p\), let \(\chi_p\) denote the quadratic character modulo \(p\), and define
 \[
@@ -84,7 +84,19 @@ The computational artifact mirrors the logical structure of the paper:
 [Explicit value: +1 or -1]
 ```
 
+
 ---
+
+## Repository Contents
+
+- `paper/` — LaTeX source of the manuscript.
+- `code/` — Python source code for the verification suite.
+- `data/` — raw and processed data.
+- `results/` — exported CSV, TXT, XLSX, and log files.
+- `docs/` — additional notes, including the reproducibility guide.
+
+---
+
 
 ## Repository Contents
 
