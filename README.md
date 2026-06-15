@@ -3,7 +3,8 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
 [![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 
-Companion repository for the paper **"An Explicit Evaluation of a Fibonacci Character Sum for Primes of Full Rank of Apparition"** by Majid Ghandali.
+Companion repository for the paper **"A Fibonacci Character Sum Identity
+for Primes of Full Rank of Apparition"** by Majid Ghandali.
 
 ---
 
@@ -111,13 +112,13 @@ The output of the verification run includes:
 - the complete list of primes tested,
 - the computed values of \(\alpha(p)\),
 - the corresponding values of \(S(p)\),
-- diagnostic tables for the empirical claims,
+- diagnostic tables for the empirical observations,
 - checkpoint files for interrupted runs,
-- and a verification log for the main theorem and corollary.
+- The verification log supports E1-E10 up to p < 2,000,000.
 
 In the current run, the pipeline processed \(148{,}933\) primes up to \(2{,}000{,}000\), and found \(26{,}407\) primes with \(\alpha(p)=p-1\). All such primes satisfied the main theorem with zero violations.
 
-The verification log also confirms the empirical claims `E1`–`E10`, including:
+The verification log also confirms the Empirical observations `E1`–`E10`, including:
 - `E1`: \(v_2(\pi)=v_2(p+1)+1\) on `DI`,
 - `E2`: \(\pi=4\alpha\) and \(\alpha\) is odd on \(Z\setminus DI\),
 - `E3`: \(\pi=\alpha\) on `cm_only`,
