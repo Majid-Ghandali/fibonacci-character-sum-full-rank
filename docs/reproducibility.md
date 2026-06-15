@@ -12,13 +12,20 @@ This document describes how to reproduce the computational results for the paper
 - `results/`: exported CSV, TXT, XLSX, and log files.
 - `docs/`: additional notes, including this reproducibility guide.
 
+
 ## Requirements
 
-- Python 3.10 or newer.
-- NumPy.
-- Pandas.
-- Numba.
-- OpenPyXL or XlsxWriter for Excel export.
+The verification environment used for the current release is:
+
+- Python 3.12.7
+- NumPy 1.26.4
+- Pandas 2.1.4
+- Numba 0.62.1
+- OpenPyXL 3.1.5
+- XlsxWriter 3.2.0
+
+A version-pinned `requirements.txt` file is included in the repository root.
+
 
 ## Main Script
 
