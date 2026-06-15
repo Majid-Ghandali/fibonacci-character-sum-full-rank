@@ -1,6 +1,6 @@
 # A Fibonacci Character Sum Identity for Primes of Full Rank of Apparition
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 
 Companion repository for the paper **"A Fibonacci Character Sum Identity
