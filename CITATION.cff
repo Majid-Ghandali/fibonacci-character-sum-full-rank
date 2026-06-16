@@ -1,5 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this repository, please cite it using the metadata below."
+
 title: "A Fibonacci Character Sum Identity for Primes of Full Rank of Apparition"
 
 authors:
@@ -9,6 +10,11 @@ authors:
     orcid: "https://orcid.org/0009-0001-1097-1770"
 
 version: "1.0.0"
+
+doi: 10.5281/zenodo.20707467
+
 date-released: 2026-06-14
-repository-code: "https://github.com/Majid-Ghandali/fibonacci-character-sum-full-rank"
+
+url: "https://github.com/Majid-Ghandali/fibonacci-character-sum-full-rank"
+
 license: MIT
