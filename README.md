@@ -155,3 +155,12 @@ A `CITATION.cff` file is included to support automatic citation metadata on GitH
 ## License
 
 This project is released under the MIT License. See `LICENSE` for details.
+
+
+## Archived Release
+
+Zenodo DOI:
+10.5281/zenodo.20707467
+
+The archived release contains the exact version of the code,
+data, and documentation used for the reproducibility record.
