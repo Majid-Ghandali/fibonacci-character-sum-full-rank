@@ -1,166 +1,324 @@
-# A Fibonacci Character Sum Identity for Primes of Full Rank of Apparition
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20707467.svg)](https://doi.org/10.5281/zenodo.20707467)
-[![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 
-Companion repository for the paper **"A Fibonacci Character Sum Identity
-for Primes of Full Rank of Apparition"** by Majid Ghandali.
+A Fibonacci Character Sum Identity for Primes of Full Rank of Apparition
 
----
+Companion repository for the paper
 
-## Abstract
+"A Fibonacci Character Sum Identity for Primes of Full Rank of Apparition"
 
-This repository accompanies the paper *A Fibonacci Character Sum Identity for Primes of Full Rank of Apparition* and provides a fully reproducible computational verification of the main theorem and the empirical claims recorded in the manuscript.
+by Majid Ghandali.
 
-For an odd prime \(p\), let \(\chi_p\) denote the quadratic character modulo \(p\), and define
-\[
-S(p)=\sum_{n=1}^{p-1}\chi_p(F_n),
-\]
-where \((F_n)\) is the Fibonacci sequence and \(\alpha(p)\) is the rank of apparition of \(p\).
+Abstract
 
-The paper proves that if
-\[
-\alpha(p)=p-1,
-\]
-then necessarily
-\[
-p\equiv 11 \pmod{20}
-\quad\text{or}\quad
-p\equiv 19 \pmod{20},
-\]
-and moreover
-\[
-S(p)=
-\begin{cases}
-+1,& p\equiv 11\pmod{20},\\[2mm]
--1,& p\equiv 19\pmod{20}.
-\end{cases}
-\]
+This repository accompanies the paper A Fibonacci Character Sum Identity for Primes of Full Rank of Apparition and provides a fully reproducible computational verification of the main theorem together with the numerical evidence reported in the manuscript.
 
-The proof shows that in the full-rank regime the nonresidue root of \(x^2-x-1\) becomes a primitive root of \(\mathbb{F}_p^\times\), which reduces the Fibonacci character sum to a structural character identity. The sign is then determined by a discriminant criterion related to fifth roots of unity.
+For an odd prime (p), let (\chi_p) denote the quadratic character modulo (p), and define
 
-This repository contains the source code, computational verification scripts, exported tables, and reproducibility artifacts needed to reproduce the results of the paper.
+[S(p)=\sum_{n=1}^{p-1}\chi_p(F_n),]
 
----
+where (F_n) is the Fibonacci sequence and (\alpha(p)) denotes the rank of apparition of (p).
 
-## Main Theorem
+The paper proves that whenever
 
-Let \(p\ge 7\) be a prime such that
-\[
-\alpha(p)=p-1.
-\]
+[\alpha(p)=p-1,]
+
+one necessarily has
+
+[p\equiv 11 \pmod{20}\qquad\text{or}\qquadp\equiv 19 \pmod{20},]
+
+and furthermore
+
+[S(p)=\begin{cases}+1,& p\equiv 11\pmod{20},\[2mm]-1,& p\equiv 19\pmod{20}.\end{cases}]
+
+The proof shows that, in the full-rank regime, the nonresidue root of
+
+[x^2-x-1]
+
+becomes a primitive root of (\mathbb F_p^\times), reducing the character sum to a structural quadratic-character identity. The sign is then determined by a discriminant criterion involving fifth roots of unity.
+
+The repository contains all source code, computational verification scripts, numerical outputs, and reproducibility materials required to reproduce the results.
+
+Main Theorem
+
+Let (p\ge 7) be a prime satisfying
+
+[\alpha(p)=p-1.]
+
 Then
-\[
-p\equiv 11 \pmod{20}
-\quad\text{or}\quad
-p\equiv 19 \pmod{20},
-\]
+
+[p\equiv 11 \pmod{20}\qquad\text{or}\qquadp\equiv 19 \pmod{20},]
+
 and
-\[
-S(p)=\sum_{n=1}^{p-1}\chi_p(F_n)=
-\begin{cases}
-+1,& p\equiv 11\pmod{20},\\[2mm]
--1,& p\equiv 19\pmod{20}.
-\end{cases}
-\]
 
----
+[ S(p)=\sum_{n=1}^{p-1}\chi_p(F_n)
 
-## Proof Pipeline
+\begin{cases}+1,& p\equiv 11\pmod{20},\[2mm]-1,& p\equiv 19\pmod{20}.\end{cases}]
 
-The computational artifact mirrors the logical structure of the paper:
+Proof Structure
 
-```text
-[Full rank: alpha(p) = p-1]
-    ↓
-[p ≡ 3 (mod 4) and p ≡ ±1 (mod 5)]
-    ↓
-[Nonresidue root of x^2 - x - 1 is primitive]
-    ↓
-[Structural identity: S(p) = χ_p(α - β)]
-    ↓
-[Sign via fifth-root discriminant criterion]
-    ↓
-[Explicit value: +1 or -1]
-```
+The computational artifact mirrors the logical structure of the proof.
 
+Full rank condition:
+α(p) = p − 1
+          ↓
+p ≡ 3 (mod 4)
+and
+p ≡ ±1 (mod 5)
+          ↓
+Nonresidue root of
+x² − x − 1
+is primitive
+          ↓
+Structural identity
 
----
+S(p)=χp(α−β)
 
-## Repository Contents
+          ↓
+Fifth-root discriminant criterion
+          ↓
+Explicit sign
 
-- `paper/` — LaTeX source of the manuscript.
-- `code/` — Python source code for the verification suite.
-- `data/` — raw and processed data.
-- `results/` — exported CSV, TXT, XLSX, and log files.
-- `docs/` — additional notes, including the reproducibility guide.
-
----
+S(p)=±1
 
 
-## Repository Contents
+Repository Layout
 
-- `paper/` — LaTeX source of the manuscript, including the main article file, bibliography, figures, and tables prepared for submission and archiving.
-- `code/` — Python source code used for computational verification, including the main analysis script, helper functions, and runtime configuration.
-- `data/` — Raw and processed numerical data, including prime lists, computed invariants, diagnostic tables, and metadata used to reproduce the verification pipeline.
-- `results/` — Final outputs generated by the verification suite, such as CSV files, TXT reports, Excel tables, logs, and other publication-ready artifacts.
-- `docs/` — Additional documentation for reproducibility, implementation notes, version history, and other project-specific guidance.
+paper/
+    LaTeX source of the manuscript
 
----
+code/
+    Verification programs
 
-## Reproducibility
+data/
+    Raw and processed datasets
 
-The verification pipeline computes, for each prime \(p < 2{,}000{,}000\), the rank of apparition \(\alpha(p)\) and the Fibonacci character sum
-\[
-S(p)=\sum_{n=1}^{p-1}\chi_p(F_n).
-\]
+results/
+    Generated outputs and logs
 
-To evaluate the quadratic character efficiently, the code provides three interchangeable backends:
-- a quadratic-residue table lookup for smaller primes,
-- a bitwise Jacobi-symbol implementation for intermediate ranges,
-- and modular exponentiation via Euler’s criterion for larger primes.
-
-The output of the verification run includes:
-- the complete list of primes tested,
-- the computed values of \(\alpha(p)\),
-- the corresponding values of \(S(p)\),
-- diagnostic tables for the empirical observations,
-- checkpoint files for interrupted runs,
-- The verification log supports E1-E10 up to p < 2,000,000.
-
-In the current run, the pipeline processed \(148{,}933\) primes up to \(2{,}000{,}000\), and found \(26{,}407\) primes with \(\alpha(p)=p-1\). All such primes satisfied the main theorem with zero violations.
-
-The verification log also confirms the Empirical observations `E1`–`E10`, including:
-- `E1`: \(v_2(\pi)=v_2(p+1)+1\) on `DI`,
-- `E2`: \(\pi=4\alpha\) and \(\alpha\) is odd on \(Z\setminus DI\),
-- `E3`: \(\pi=\alpha\) on `cm_only`,
-- `E4`: \(\alpha \mid (p+1)\) for inert primes,
-- `E5`: \(\alpha \mid (p-1)\) for split primes,
-- `E6` and `E7`: the parity of the exponent \(k\) is controlled by \(\chi_p(-1)\),
-- `E8`: the main theorem for full-rank `cm_only` primes,
-- `E9` and `E10`: additional informational regularities on selected subclasses.
-
-For implementation details, dependency management, and the exact output layout, see `docs/reproducibility.md`.
-
----
-
-## Citation
-
-If you use this repository, please cite the paper and the code archive using the Zenodo DOI and the BibTeX entry in `references.bib`.
-
-A `CITATION.cff` file is included to support automatic citation metadata on GitHub and Zenodo.
-
----
-
-## License
-
-This project is released under the MIT License. See `LICENSE` for details.
+docs/
+    Reproducibility documentation
 
 
-## Archived Release
+Repository Contents
 
-Zenodo DOI:
-10.5281/zenodo.20707467
+paper/
 
-The archived release contains the exact version of the code,
-data, and documentation used for the reproducibility record.
+LaTeX source files of the manuscript, including:
+
+article source,
+
+bibliography,
+
+tables,
+
+figures,
+
+supplementary material used for submission.
+
+code/
+
+Python implementation of the verification framework, including:
+
+rank-of-apparition computations,
+
+Fibonacci character-sum evaluation,
+
+diagnostic tests,
+
+empirical verification routines.
+
+data/
+
+Input and derived datasets used throughout the project:
+
+prime lists,
+
+computed invariants,
+
+intermediate tables,
+
+metadata required for reproducibility.
+
+results/
+
+Generated outputs of the computational pipeline:
+
+CSV files,
+
+TXT reports,
+
+XLSX spreadsheets,
+
+verification logs,
+
+publication-ready tables.
+
+docs/
+
+Supporting documentation, including:
+
+reproducibility instructions,
+
+implementation notes,
+
+version history,
+
+project documentation.
+
+Reproducibility
+
+The verification framework computes, for every prime
+
+[p<2,000,000,]
+
+the rank of apparition (\alpha(p)) together with the Fibonacci character sum
+
+[S(p)=\sum_{n=1}^{p-1}\chi_p(F_n).]
+
+To evaluate the quadratic character efficiently, the implementation supports three interchangeable backends:
+
+quadratic-residue lookup tables,
+
+bitwise Jacobi-symbol computation,
+
+Euler-criterion modular exponentiation.
+
+The verification outputs include:
+
+complete prime lists,
+
+computed values of (\alpha(p)),
+
+computed values of (S(p)),
+
+diagnostic tables,
+
+checkpoint files,
+
+execution logs,
+
+empirical verification reports.
+
+Current Verification Record
+
+The current computation processed
+
+[148,933]
+
+primes up to
+
+[2,000,000.]
+
+Among them,
+
+[26,407]
+
+primes satisfy
+
+[\alpha(p)=p-1.]
+
+All such primes satisfy the main theorem with zero observed violations.
+
+Empirical Observations
+
+The verification log additionally records the empirical observations E1–E10.
+
+ObservationDescription
+
+E1
+
+(v_2(\pi)=v_2(p+1)+1) on DI
+
+E2
+
+(\pi=4\alpha) and (\alpha) odd on (Z\setminus DI)
+
+E3
+
+(\pi=\alpha) on cm_only
+
+E4
+
+(\alpha\mid(p+1)) for inert primes
+
+E5
+
+(\alpha\mid(p-1)) for split primes
+
+E6
+
+parity law for exponent (k) controlled by (\chi_p(-1))
+
+E7
+
+complementary parity law for (k)
+
+E8
+
+full-rank sign theorem on cm_only
+
+E9
+
+additional structural regularities
+
+E10
+
+additional informational regularities
+
+These observations are included for documentation purposes and remain logically separate from the proven theorem.
+
+Installation
+
+Clone the repository:
+
+git clone https://github.com/USERNAME/REPOSITORY.git
+cd REPOSITORY
+
+
+Install dependencies:
+
+pip install -r requirements.txt
+
+
+Run the verification suite:
+
+python code/main.py
+
+
+Citation
+
+If you use this repository, please cite:
+
+the accompanying paper,
+
+the archived reproducibility package.
+
+Citation metadata is provided through:
+
+CITATION.cff
+
+
+and the corresponding BibTeX entries.
+
+License
+
+This project is distributed under the MIT License.
+
+See:
+
+LICENSE
+
+
+for details.
+
+Release Information
+
+The reproducibility archive associated with this repository is maintained through Zenodo.
+
+The DOI corresponding to the archived release will be recorded here once the release is finalized.
+
+Version: v1.0.1
+DOI: pending release
+
+
+چند نکته حرفه‌ای که در این نسخه اعمال شده و ارزش واقعی دارند
