@@ -1,0 +1,7 @@
+headline
+quantity	value	count	total
+delta(Z)	0.437957435	18191	41536
+delta(DI)	0.250361133	10399	41536
+deltal(Z and DI)	0.250361133	10399	41536
+delta(Z minus DI)	0.187596302	7792	41536
+P(Z | DI)	1	10399	10399
