@@ -1,0 +1,3 @@
+p_mod_20,predicted_S,count,matches,mismatches,verdict
+11,1,97,97,0,PASS
+19,-1,119,119,0,PASS
