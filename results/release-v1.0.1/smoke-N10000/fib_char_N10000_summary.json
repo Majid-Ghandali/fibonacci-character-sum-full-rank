@@ -1,0 +1,270 @@
+{
+  "fibchar_version": "1.0.1",
+  "release_date": "2026-07-17",
+  "paper": "An Explicit Evaluation of a Fibonacci Character Sum for Primes of Full Rank of Apparition (Journal of Number Theory, submitted)",
+  "github": "https://github.com/Majid-Ghandali/fibonacci-character-sum-full-rank",
+  "zenodo_version_doi": null,
+  "zenodo_previous_release": "https://doi.org/10.5281/zenodo.20707467",
+  "run_parameters": {
+    "N_max": 10000,
+    "th_array": 3000000,
+    "th_bitwise": 10000000,
+    "parallel": true,
+    "workers": 14,
+    "chunk_size": 500,
+    "resumed": false
+  },
+  "headline": {
+    "delta(Z)": {
+      "quantity": "delta(Z)",
+      "value": 0.44335778321108393,
+      "count": 544,
+      "total": 1227
+    },
+    "delta(DI)": {
+      "quantity": "delta(DI)",
+      "value": 0.254278728606357,
+      "count": 312,
+      "total": 1227
+    },
+    "delta(Z and DI)": {
+      "quantity": "delta(Z and DI)",
+      "value": 0.254278728606357,
+      "count": 312,
+      "total": 1227
+    },
+    "delta(Z minus DI)": {
+      "quantity": "delta(Z minus DI)",
+      "value": 0.189079054604727,
+      "count": 232,
+      "total": 1227
+    },
+    "P(Z | DI)": {
+      "quantity": "P(Z | DI)",
+      "value": 1.0,
+      "count": 312,
+      "total": 312
+    }
+  },
+  "main_theorem": {
+    "p_mod_20_11": {
+      "p_mod_20": 11,
+      "predicted_S": 1,
+      "count": 97,
+      "matches": 97,
+      "mismatches": 0,
+      "verdict": "PASS"
+    },
+    "p_mod_20_19": {
+      "p_mod_20": 19,
+      "predicted_S": -1,
+      "count": 119,
+      "matches": 119,
+      "mismatches": 0,
+      "verdict": "PASS"
+    }
+  },
+  "corollary_b1": {
+    "p_mod_20_11": {
+      "p_mod_20": 11,
+      "predicted_S": 1,
+      "count": 97,
+      "matches": 97,
+      "mismatches": 0,
+      "verdict": "PASS"
+    },
+    "p_mod_20_19": {
+      "p_mod_20": 19,
+      "predicted_S": -1,
+      "count": 119,
+      "matches": 119,
+      "mismatches": 0,
+      "verdict": "PASS"
+    }
+  },
+  "empirical_claims_E1_to_E10": [
+    {
+      "claim": "E1 : v_2(pi) = v_2(p+1) + 1  on DI",
+      "passes": true,
+      "n_tested": 312,
+      "n_violations": 0,
+      "status": "PASS",
+      "info": ""
+    },
+    {
+      "claim": "E2 : pi = 4 alpha AND alpha odd  on Z \\ DI",
+      "passes": true,
+      "n_tested": 232,
+      "n_violations": 0,
+      "status": "PASS",
+      "info": ""
+    },
+    {
+      "claim": "E3 : pi = alpha  on cm_only",
+      "passes": true,
+      "n_tested": 307,
+      "n_violations": 0,
+      "status": "PASS",
+      "info": ""
+    },
+    {
+      "claim": "E4 : alpha | (p+1)  for inert primes",
+      "passes": true,
+      "n_tested": 618,
+      "n_violations": 0,
+      "status": "PASS",
+      "info": ""
+    },
+    {
+      "claim": "E5 : alpha | (p-1)  for split primes",
+      "passes": true,
+      "n_tested": 609,
+      "n_violations": 0,
+      "status": "PASS",
+      "info": ""
+    },
+    {
+      "claim": "E6 : chi_p(-1) = -1  ==>  k is odd",
+      "passes": true,
+      "n_tested": 619,
+      "n_violations": 0,
+      "status": "PASS",
+      "info": ""
+    },
+    {
+      "claim": "E7 : chi_p(-1) = +1  ==>  k is even",
+      "passes": true,
+      "n_tested": 608,
+      "n_violations": 0,
+      "status": "PASS",
+      "info": ""
+    },
+    {
+      "claim": "E8 : paper S(p)=T_alpha is +1 if p==1 mod 5, -1 if p==4 mod 5  [MAIN THEOREM]",
+      "passes": true,
+      "n_tested": 216,
+      "n_violations": 0,
+      "status": "PASS",
+      "info": ""
+    },
+    {
+      "claim": "E9 : |S_p| is odd  on cm_only with k=3",
+      "passes": true,
+      "n_tested": 42,
+      "n_violations": 0,
+      "status": "PASS",
+      "info": ""
+    },
+    {
+      "claim": "E10: 8 | S_p  on fib_only with k=2",
+      "passes": true,
+      "n_tested": 239,
+      "n_violations": 0,
+      "status": "PASS",
+      "info": ""
+    }
+  ],
+  "sanity_checks": [
+    {
+      "invariant": "S1: P(Z | DI) = 1   (Main result of the paper)",
+      "passes": true,
+      "violations": 0
+    },
+    {
+      "invariant": "S2: pi/alpha = 4   for all p in Z \\ DI",
+      "passes": true,
+      "violations": 0
+    },
+    {
+      "invariant": "S3: v_2(pi) = 2   for all p in Z \\ DI",
+      "passes": true,
+      "violations": 0
+    },
+    {
+      "invariant": "S4: v_2(pi) >= 3   for all DI primes",
+      "passes": true,
+      "violations": 0
+    },
+    {
+      "invariant": "S5: DI and p == 3 (mod 8)  ==>  v_2(pi) = 3",
+      "passes": true,
+      "violations": 0
+    },
+    {
+      "invariant": "S6: DI and p == 7 (mod 8)  ==>  v_2(pi) >= 4",
+      "passes": true,
+      "violations": 0
+    },
+    {
+      "invariant": "S7: Main Thm  --  T_alpha = +1 for p == 11 (mod 20)",
+      "passes": true,
+      "violations": 0
+    },
+    {
+      "invariant": "S8: Main Thm  --  T_alpha = -1 for p == 19 (mod 20)",
+      "passes": true,
+      "violations": 0
+    },
+    {
+      "invariant": "S9: s^2 == -1 (mod p) on Z \\ DI  [sample n=232]",
+      "passes": true,
+      "violations": 0
+    }
+  ],
+  "root_order_sign_checks": {
+    "tested": 216,
+    "verdict": "PASS",
+    "details": [
+      {
+        "check": "Roots: exactly one QR + one NQR",
+        "n_tested": 216,
+        "n_pass": 216,
+        "n_fail": 0,
+        "verdict": "PASS"
+      },
+      {
+        "check": "Order: ord(-r_-^2) == alpha(p)",
+        "n_tested": 216,
+        "n_pass": 216,
+        "n_fail": 0,
+        "verdict": "PASS"
+      },
+      {
+        "check": "Order: ord(r_-) == p-1 (primitive)",
+        "n_tested": 216,
+        "n_pass": 216,
+        "n_fail": 0,
+        "verdict": "PASS"
+      },
+      {
+        "check": "Sign:  chi_p(r_- - r_+) == predicted",
+        "n_tested": 216,
+        "n_pass": 216,
+        "n_fail": 0,
+        "verdict": "PASS"
+      },
+      {
+        "check": "T_alpha == chi_p(r_- - r_+)  [struct]",
+        "n_tested": 216,
+        "n_pass": 216,
+        "n_fail": 0,
+        "verdict": "PASS"
+      },
+      {
+        "check": "T_alpha == predicted  [main thm]",
+        "n_tested": 216,
+        "n_pass": 216,
+        "n_fail": 0,
+        "verdict": "PASS"
+      },
+      {
+        "check": "OVERALL (all checks pass per prime)",
+        "n_tested": 216,
+        "n_pass": 216,
+        "n_fail": 0,
+        "verdict": "PASS"
+      }
+    ]
+  },
+  "self_test": {}
+}

@@ -1,0 +1,207 @@
+==============================================================================
+ FibChar v1.0.1  --  UNIFIED DIAGNOSTIC REPORT
+ An Explicit Evaluation of a Fibonacci Character Sum for Primes of Full Rank of Apparition (Journal of Number Theory, submitted)
+==============================================================================
+
+  Total primes in df    : 1,229
+  Main set (p != 2, 5)  : 1,227
+
+[ HEADLINE DENSITIES ]
+         quantity    value  count  total
+         delta(Z) 0.443358    544   1227
+        delta(DI) 0.254279    312   1227
+  delta(Z and DI) 0.254279    312   1227
+delta(Z minus DI) 0.189079    232   1227
+        P(Z | DI) 1.000000    312    312
+
+[ TABLE  1 ] Signature counts
+signature  count  fraction
+       DI    312  0.254279
+ fib_only    306  0.249389
+  cm_only    307  0.250204
+  neither    302  0.246129
+
+[ TABLE  2 ] P(Z | signature)
+signature  n_sig  n_Z  P_Z_given_sig
+       DI    312  312       1.000000
+ fib_only    306  156       0.509804
+  cm_only    307    0       0.000000
+  neither    302   76       0.251656
+
+[ TABLE  3 ] S(p) statistics per signature
+signature  mean_S_p    std_S_p  mean_absS  max_absS
+       DI  0.000000   0.000000   0.000000         0
+ fib_only  0.941176 125.835606  73.150327       368
+  cm_only  0.185668  13.903545   6.387622        65
+  neither  4.440397  52.532996  29.175497       190
+
+[ TABLE  4 ] v_2(pi) per class
+     class    n  mean_v2  median_v2  min_v2  max_v2
+       all 1227 2.308883          2       1      12
+         Z  544 3.110294          3       2      12
+        DI  312 3.935897          3       3      12
+Z_minus_DI  232 2.000000          2       2       2
+  Z_and_DI  312 3.935897          3       3      12
+
+[ TABLE 4b ] Full distribution of v_2(pi)
+ v2  freq_all   freq_Z  freq_ZminusDI  freq_DI
+  1  0.335778 0.000000            0.0 0.000000
+  2  0.330888 0.426471            1.0 0.000000
+  3  0.171149 0.294118            0.0 0.512821
+  4  0.081500 0.139706            0.0 0.243590
+  5  0.042380 0.077206            0.0 0.134615
+  6  0.023635 0.038603            0.0 0.067308
+  7  0.005705 0.005515            0.0 0.009615
+  8  0.005705 0.012868            0.0 0.022436
+  9  0.001630 0.001838            0.0 0.003205
+ 10  0.000815 0.001838            0.0 0.003205
+ 12  0.000815 0.001838            0.0 0.003205
+
+[ TABLE  5 ] P(Z | p mod 20)
+ mod20  count  fraction  n_Z  P_Z_given_mod
+     1    152  0.123879   40       0.263158
+     3    158  0.128769  158       1.000000
+     7    154  0.125509  154       1.000000
+     9    150  0.122249   36       0.240000
+    11    154  0.125509    0       0.000000
+    13    152  0.123879   79       0.519737
+    17    154  0.125509   77       0.500000
+    19    153  0.124694    0       0.000000
+
+[ TABLE  6 ] P(Z | p mod 8)
+ mod8  count  fraction  n_Z  P_Z_given_mod
+    1    295  0.240424    1       0.003390
+    3    311  0.253464  160       0.514469
+    5    313  0.255094  231       0.738019
+    7    308  0.251019  152       0.493506
+
+[ TABLE  7 ] 2-adic tower  P(Z | v_2(pi) = k)
+ k  n_k  n_Z  P_Z_given_k  P_Z_k_mod8_1  n_k_mod8_1  P_Z_k_mod8_3  n_k_mod8_3  P_Z_k_mod8_5  n_k_mod8_5  P_Z_k_mod8_7  n_k_mod8_7
+ 1  412    0     0.000000      0.000000          23           0.0         151           0.0          82           0.0         156
+ 2  406  232     0.571429      0.005714         175           NaN           0           1.0         231           NaN           0
+ 3  210  160     0.761905      0.000000          50           1.0         160           NaN           0           NaN           0
+ 4  100   76     0.760000      0.000000          24           NaN           0           NaN           0           1.0          76
+ 5   52   42     0.807692      0.000000          10           NaN           0           NaN           0           1.0          42
+ 6   29   21     0.724138      0.000000           8           NaN           0           NaN           0           1.0          21
+ 7    7    3     0.428571      0.000000           4           NaN           0           NaN           0           1.0           3
+ 8    7    7     1.000000           NaN           0           NaN           0           NaN           0           1.0           7
+ 9    2    1     0.500000      0.000000           1           NaN           0           NaN           0           1.0           1
+10    1    1     1.000000           NaN           0           NaN           0           NaN           0           1.0           1
+12    1    1     1.000000           NaN           0           NaN           0           NaN           0           1.0           1
+
+[ TABLE  8 ] Cross-table: v_2 x signature x is_Z
+signature  v2_pisano   n  n_Z  n_not_Z      P_Z
+       DI          3 160  160        0 1.000000
+       DI          4  76   76        0 1.000000
+       DI          5  42   42        0 1.000000
+       DI          6  21   21        0 1.000000
+       DI          7   3    3        0 1.000000
+       DI          8   7    7        0 1.000000
+       DI          9   1    1        0 1.000000
+       DI         10   1    1        0 1.000000
+       DI         12   1    1        0 1.000000
+ fib_only          2 306  156      150 0.509804
+  cm_only          1 307    0      307 0.000000
+  neither          1 105    0      105 0.000000
+  neither          2 100   76       24 0.760000
+  neither          3  50    0       50 0.000000
+  neither          4  24    0       24 0.000000
+  neither          5  10    0       10 0.000000
+  neither          6   8    0        8 0.000000
+  neither          7   4    0        4 0.000000
+  neither          9   1    0        1 0.000000
+
+[ TABLE 8b ] DI primes split by (mod 8, v_2)
+ mod8  v2_pisano  count  all_in_Z
+    3          3    160      True
+    7          4     76      True
+    7          5     42      True
+    7          6     21      True
+    7          7      3      True
+    7          8      7      True
+    7          9      1      True
+    7         10      1      True
+    7         12      1      True
+
+[ TABLE  9 ] Near-cancellation in Z^c
+ threshold  count_below  fraction_of_nonZ
+         1          293          0.428990
+         2          298          0.436310
+         4          304          0.445095
+         8          325          0.475842
+        16          387          0.566618
+        32          447          0.654466
+        64          528          0.773060
+
+[ TABLE 10 ] Z \ DI  distribution by p mod 8
+ mod8  count
+    1      1
+    5    231
+
+[ TABLE 11 ] Z \ DI  distribution of pi/alpha
+ pi_over_alpha  count
+             4    232
+
+[ TABLE 12 ] Z \ DI  exceptions (p = 1 mod 8)
+   p  pisano  alpha  pi_over_alpha  mod8  s  chi_s  T_alpha  S_p signature
+4513     244     61              4     1 95      1        0    0  fib_only
+
+[ TABLE 13 ] T_alpha stats (p=1 mod 8, v_2=2)
+  n  mean_T_alpha  std_T_alpha  min_T_alpha  median_T_alpha  max_T_alpha  n_T_alpha_eq_0  rw_expected
+175      0.994286    42.354212          -92             4.0           88               1     7.964254
+
+[ TABLE 14 ] delta(Z) decomposition
+                                       component    delta  count
+           DI (doubly-inert, p == 3 or 7 mod 20) 0.254279    312
+Z and (v_2=2, p == 5 mod 8)  [auto-cancellation] 0.188264    231
+   Z and (v_2=2, p == 1 mod 8)  [rare T_alpha=0] 0.000815      1
+                                         TOTAL Z 0.443358    544
+
+[ TABLE 15 ] SANITY CHECKS  (provable; must PASS)
+                                          invariant  passes  violations
+     S1: P(Z | DI) = 1   (Main result of the paper)    True           0
+             S2: pi/alpha = 4   for all p in Z \ DI    True           0
+              S3: v_2(pi) = 2   for all p in Z \ DI    True           0
+               S4: v_2(pi) >= 3   for all DI primes    True           0
+        S5: DI and p == 3 (mod 8)  ==>  v_2(pi) = 3    True           0
+       S6: DI and p == 7 (mod 8)  ==>  v_2(pi) >= 4    True           0
+S7: Main Thm  --  T_alpha = +1 for p == 11 (mod 20)    True           0
+S8: Main Thm  --  T_alpha = -1 for p == 19 (mod 20)    True           0
+    S9: s^2 == -1 (mod p) on Z \ DI  [sample n=232]    True           0
+
+[ TABLE 15b] EMPIRICAL OBSERVATIONS  (not yet proved)
+                                      observation  holds  exceptions                      note
+O1: cm_only never in Z  (so far, up to current N)   True           0 empirical; not yet proved
+
+[ TABLE 16 ] Main Theorem verification
+ p_mod_20  predicted_S  count  matches  mismatches verdict
+       11            1     97       97           0    PASS
+       19           -1    119      119           0    PASS
+
+[ TABLE 17 ] All empirical claims E1..E10
+                                                                        claim  passes  n_tested  n_violations status info
+                                           E1 : v_2(pi) = v_2(p+1) + 1  on DI    True       312             0   PASS     
+                                   E2 : pi = 4 alpha AND alpha odd  on Z \ DI    True       232             0   PASS     
+                                                  E3 : pi = alpha  on cm_only    True       307             0   PASS     
+                                         E4 : alpha | (p+1)  for inert primes    True       618             0   PASS     
+                                         E5 : alpha | (p-1)  for split primes    True       609             0   PASS     
+                                           E6 : chi_p(-1) = -1  ==>  k is odd    True       619             0   PASS     
+                                          E7 : chi_p(-1) = +1  ==>  k is even    True       608             0   PASS     
+E8 : paper S(p)=T_alpha is +1 if p==1 mod 5, -1 if p==4 mod 5  [MAIN THEOREM]    True       216             0   PASS     
+                                       E9 : |S_p| is odd  on cm_only with k=3    True        42             0   PASS     
+                                           E10: 8 | S_p  on fib_only with k=2    True       239             0   PASS     
+
+[ TABLE 18 ] Root / order / sign checks (summary)
+                                check  n_tested  n_pass  n_fail verdict
+      Roots: exactly one QR + one NQR       216     216       0    PASS
+       Order: ord(-r_-^2) == alpha(p)       216     216       0    PASS
+   Order: ord(r_-) == p-1 (primitive)       216     216       0    PASS
+ Sign:  chi_p(r_- - r_+) == predicted       216     216       0    PASS
+T_alpha == chi_p(r_- - r_+)  [struct]       216     216       0    PASS
+     T_alpha == predicted  [main thm]       216     216       0    PASS
+  OVERALL (all checks pass per prime)       216     216       0    PASS
+
+[ GO / NO-GO VERDICT ]
+    delta(Z \ DI) = 0.189079   >>>  SUBSTANTIAL  --  hidden structure beyond DI!
+
+==============================================================================

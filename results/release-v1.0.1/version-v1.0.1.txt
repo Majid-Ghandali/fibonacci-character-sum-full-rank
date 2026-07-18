@@ -1,0 +1,1 @@
+FibChar v1.0.1  (author: Majid Ghandali)

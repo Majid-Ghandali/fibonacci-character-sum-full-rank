@@ -1,0 +1,42 @@
+usage: Fibchar_v1-0-1.py [-h] [--N N_MAX] [--out-dir DIR] [--no-gui]
+                         [--self-test] [--verify-b1] [--resume] [--parallel]
+                         [--workers W] [--chunk-size C] [--th-array T]
+                         [--th-bitwise T] [--version]
+
+FibChar v1.0.1  --  An Explicit Evaluation of a Fibonacci Character Sum for Primes of Full Rank of Apparition (Journal of Number Theory, submitted)
+
+options:
+  -h, --help      show this help message and exit
+  --N N_MAX       Compute all primes <= N_MAX (default: 1,000,000)
+  --out-dir DIR   Output directory (default: FibChar_Output)
+  --no-gui        Force CLI mode (ignore Tkinter even if available)
+  --self-test     Run the five Appendix-A worked examples and exit
+  --verify-b1     Run Main Theorem + root/order/sign verifications after
+                  compute
+  --resume        Resume from the most recent checkpoint (sequential only)
+  --parallel      Use the multi-process pipeline (no checkpoint/resume)
+  --workers W     Worker processes for --parallel (default: 14)
+  --chunk-size C  Primes per parallel task (default: 500). Smaller chunks
+                  improve load balance on the tail of the run (where the
+                  largest primes are most expensive); larger chunks reduce IPC
+                  overhead but risk long stragglers.
+  --th-array T    QR-table backend threshold (default: 3,000,000)
+  --th-bitwise T  Bitwise-Jacobi backend threshold (default: 10,000,000)
+  --version       show program's version number and exit
+
+Examples
+--------
+  Reproduce the paper's N=10^6 run with full verification:
+      Fibchar_v1-0-1.py --no-gui --N 1000000 --verify-b1
+
+  Larger run (N=2*10^6), faster via multi-process:
+      Fibchar_v1-0-1.py --no-gui --N 2000000 --verify-b1 --parallel --workers 8 --chunk-size 5000
+
+  Quick self-test (5 Appendix-A examples, ~instant):
+      Fibchar_v1-0-1.py --self-test
+
+  Resume an interrupted sequential run:
+      Fibchar_v1-0-1.py --no-gui --N 2000000 --verify-b1 --resume
+
+  Interactive GUI (default if Tkinter is available):
+      Fibchar_v1-0-1.py
