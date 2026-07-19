@@ -1,13 +1,19 @@
 cff-version: 1.2.0
 message: "If you use FibChar v1.0.1 or its reproducibility materials, please cite it as follows."
+
 type: software
 title: "FibChar"
 version: "v1.0.1"
 date-released: "2026-07-18"
+
 authors:
   - family-names: "Ghandali"
     given-names: "Majid"
+    affiliation: "Independent Researcher"
+    orcid: "https://orcid.org/0009-0001-1097-1770"
+
 doi: "10.5281/zenodo.21431565"
 url: "https://doi.org/10.5281/zenodo.21431565"
 repository-code: "https://github.com/Majid-Ghandali/fibonacci-character-sum-full-rank"
+
 license: "MIT"
