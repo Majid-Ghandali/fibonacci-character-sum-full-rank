@@ -1,42 +1,45 @@
 # An Explicit Evaluation of a Fibonacci Character Sum for Primes with Full Rank of Apparition
 
 [![GitHub Release](https://img.shields.io/github/v/release/Majid-Ghandali/fibonacci-character-sum-full-rank?display_name=tag&sort=semver)](https://github.com/Majid-Ghandali/fibonacci-character-sum-full-rank/releases)
-[![Zenodo Version DOI](https://zenodo.org/badge/DOI/ZENODO_VERSION_DOI.svg)](https://doi.org/ZENODO_VERSION_DOI)
-[![Zenodo Concept DOI](https://zenodo.org/badge/DOI/ZENODO_CONCEPT_DOI.svg)](https://doi.org/ZENODO_CONCEPT_DOI)
+[![Zenodo DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21431565.svg)](https://doi.org/10.5281/zenodo.21431565)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Python](https://img.shields.io/badge/Python-3.11%2B-blue.svg)](https://www.python.org/)
+[![Python](https://img.shields.io/badge/Python-3.12.7-blue.svg)](https://www.python.org/downloads/release/python-3127/)
 [![GitHub Release Date](https://img.shields.io/github/release-date/Majid-Ghandali/fibonacci-character-sum-full-rank)](https://github.com/Majid-Ghandali/fibonacci-character-sum-full-rank/releases)
 
-> **Companion repository for the manuscript**  
-> *An Explicit Evaluation of a Fibonacci Character Sum for Primes with Full Rank of Apparition*  
+> **Companion repository for the mathematical manuscript**  
+> *An Explicit Evaluation of a Fibonacci Character Sum for Primes with Full Rank of Apparition*
 >
 > **Majid Ghandali** · Independent Researcher · 2026  
-> **Manuscript (2026)**
+> **Current reproducibility release:** [`v1.0.1`](https://github.com/Majid-Ghandali/fibonacci-character-sum-full-rank/releases/tag/v1.0.1)  
+> **Citable archival DOI:** [10.5281/zenodo.21431565](https://doi.org/10.5281/zenodo.21431565)
 
 ---
 
 ## Overview
 
-This repository contains the manuscript source, computational verification code, datasets, logs, results, and reproducibility materials associated with the accompanying mathematical manuscript.
+This repository contains the manuscript source, computational code, datasets, logs, generated tables, and reproducibility materials associated with the accompanying mathematical manuscript:
 
-The project concerns the quadratic-character sum
+> *An Explicit Evaluation of a Fibonacci Character Sum for Primes with Full Rank of Apparition.*
+
+The project studies the quadratic-character sum
 
 $$
 S(p)=\sum_{n=1}^{p-1}\chi_p(F_n),
 $$
 
-where $(F_n)$ is the Fibonacci sequence and $\chi_p$ is the quadratic character modulo an odd prime $p$.
+where $(F_n)$ is the Fibonacci sequence and $\chi_p$ denotes the quadratic character modulo an odd prime $p$.
 
-The main result gives an explicit evaluation of this sum in the **full-rank regime**
+The principal setting is the **full-rank regime**
 
 $$
 \alpha(p)=p-1,
 $$
 
-where $\alpha(p)$ is the rank of apparition of $p$.
+where $\alpha(p)$ is the rank of apparition of $p$ in the Fibonacci sequence.
 
 > [!NOTE]
-> The computations in this repository verify the stated identities and implementation across a specified finite range. They support reproducibility, but the mathematical results are proved in the accompanying manuscript.
+> The mathematical results are proved in the accompanying manuscript.  
+> The computations in this repository verify the implementation, the stated identities, and the reproducibility of the reported finite-range calculations; they do not replace the proofs.
 
 ---
 
@@ -44,15 +47,14 @@ where $\alpha(p)$ is the rank of apparition of $p$.
 
 - [Scientific Highlights](#scientific-highlights)
 - [Main Theorem](#main-theorem)
-- [Proof Structure](#proof-structure)
-- [Verification Summary](#verification-summary)
-- [Computational Pipeline](#computational-pipeline)
-- [Reproducibility](#reproducibility)
-- [Project Structure](#project-structure)
+- [Proof Mechanism](#proof-mechanism)
+- [Verification Scope](#verification-scope)
+- [Reproducibility Release v1.0.1](#reproducibility-release-v101)
+- [Repository Structure](#repository-structure)
+- [Requirements](#requirements)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Structural Checks](#structural-checks)
-- [Auxiliary Empirical Observations](#auxiliary-empirical-observations)
+- [Integrity Verification](#integrity-verification)
 - [Zenodo Archive](#zenodo-archive)
 - [Citation](#citation)
 - [License](#license)
@@ -62,17 +64,17 @@ where $\alpha(p)$ is the rank of apparition of $p$.
 
 ## Scientific Highlights
 
-| | Result |
+| Item | Description |
 |:--|:--|
 | **Object** | Quadratic-character sums attached to Fibonacci values |
 | **Hypothesis** | Full rank of apparition: $\alpha(p)=p-1$ |
 | **Congruence consequence** | $p\equiv 11$ or $19\pmod{20}$ |
-| **Structural mechanism** | The nonresidue root of $x^2-x-1$ becomes primitive in $\mathbb F_p^\times$ |
-| **Character-sum identity** | $S(p)=\chi_p(r_--r_+)$ |
+| **Structural mechanism** | The quadratic-nonresidue root of $x^2-x-1$ is primitive in $\mathbb F_p^\times$ |
+| **Structural identity** | $S(p)=\chi_p(r_--r_+)$ |
 | **Explicit evaluation** | $S(p)=+1$ for $p\equiv11\pmod{20}$ and $S(p)=-1$ for $p\equiv19\pmod{20}$ |
 | **Verification range** | Every prime $p\le2{,}000{,}000$ |
 
-The proof mechanism combines the arithmetic of the roots of
+The proof combines the arithmetic of the roots of
 
 $$
 x^2-x-1
@@ -109,111 +111,47 @@ S(p)=\sum_{n=1}^{p-1}\chi_p(F_n)
 \end{cases}
 $$
 
-More structurally, if $r_-$ is the quadratic nonresidue root of $x^2-x-1$ in $\mathbb F_p$, and $r_+$ is the quadratic residue root, then
+More structurally, let $r_-$ be the quadratic-nonresidue root of $x^2-x-1$ in $\mathbb F_p$, and let $r_+$ be the quadratic-residue root. Then
 
 $$
 S(p)=\chi_p(r_--r_+).
 $$
 
-The full-rank hypothesis forces $r_-$ to be a primitive root of $\mathbb F_p^\times$. This is the key mechanism that makes the explicit evaluation possible.
+Under the full-rank hypothesis, the root $r_-$ is a primitive root of $\mathbb F_p^\times$. This primitivity is the central mechanism behind the explicit evaluation.
+
+For complete definitions, hypotheses, proofs, and bibliographic context, see the manuscript source in [`Paper/`](Paper/).
 
 ---
 
-## Proof Structure
+## Proof Mechanism
 
 ```mermaid
 flowchart TD
     A["Full-rank condition<br/>α(p) = p − 1"]
     B["Congruence constraints<br/>p ≡ 3 (mod 4)<br/>p ≡ ±1 (mod 5)"]
-    C["Nonresidue root of<br/>x² − x − 1 is primitive"]
+    C["The nonresidue root of<br/>x² − x − 1 is primitive"]
     D["Structural identity<br/>S(p) = χₚ(r₋ − r₊)"]
-    E["Fifth-root<br/>discriminant criterion"]
-    F["Explicit evaluation<br/>S(p) = ±1"]
+    E["Fifth-root discriminant criterion"]
+    F["Explicit sign evaluation<br/>S(p) = +1 or −1"]
 
     A --> B
     B --> C
     C --> D
     D --> E
     E --> F
-
-    classDef condition fill:#E8F0FE,stroke:#1A73E8,color:#202124;
-    classDef mechanism fill:#E6F4EA,stroke:#188038,color:#202124;
-    classDef conclusion fill:#FEF7E0,stroke:#F9AB00,color:#202124;
-
-    class A,B condition;
-    class C,D,E mechanism;
-    class F conclusion;
 ```
 
 ---
 
-## Verification Summary
+## Verification Scope
 
-The verification was carried out for **every prime**
+The computational framework verifies the implementation and the stated finite-range identities for every prime
 
 $$
 p\le2{,}000{,}000.
 $$
 
-| Quantity | Value |
-|:--|--:|
-| Prime bound | $p\le2{,}000{,}000$ |
-| Primes tested | 148,933 |
-| Split primes $p\equiv\pm1\pmod 5$ | 74,461 |
-| Full-rank primes $\alpha(p)=p-1$ | 26,407 |
-| Full-rank density among split primes | $26{,}407/74{,}461\approx35.46\%$ |
-| Main-theorem matches | 26,407 |
-| Main-theorem violations | **0** |
-
-> [!TIP]
-> **All structural identities appearing in the proof were also verified computationally over the same range.**
-
-The verification is deliberately **non-circular**:
-
-- $\alpha(p)$ is computed by direct iteration of the Fibonacci recurrence modulo $p$;
-- $S(p)$ is computed directly from
-  $$
-  \sum_{n=1}^{p-1}\chi_p(F_n);
-  $$
-- the closed formula from the theorem is used only as a comparison target, never as input to the calculation.
-
----
-
-## Computational Pipeline
-
-```mermaid
-flowchart LR
-    A["Generate primes<br/>p ≤ 2,000,000"]
-    B["Iterate Fibonacci<br/>recurrence modulo p"]
-    C["Compute rank of apparition<br/>α(p)"]
-    D{"α(p) = p − 1?"}
-    E["Record auxiliary<br/>invariants"]
-    F["Compute S(p)<br/>directly"]
-    G["Compute roots of<br/>x² − x − 1"]
-    H["Verify root labels,<br/>orders, identity, and sign"]
-    I["Write data files,<br/>logs, and reports"]
-
-    A --> B --> C --> D
-    D -- No --> E --> I
-    D -- Yes --> F --> G --> H --> I
-
-    classDef input fill:#E8F0FE,stroke:#1A73E8,color:#202124;
-    classDef process fill:#E6F4EA,stroke:#188038,color:#202124;
-    classDef output fill:#FEF7E0,stroke:#F9AB00,color:#202124;
-
-    class A input;
-    class B,C,D,E,F,G,H process;
-    class I output;
-```
-
----
-
-## Reproducibility
-
-> [!IMPORTANT]
-> Python **3.11 or later** is recommended.
-
-For each prime $p\le2{,}000{,}000$, the framework computes or verifies:
+For each relevant prime, the computations include, as applicable:
 
 1. the rank of apparition $\alpha(p)$;
 2. the direct Fibonacci character sum
@@ -221,84 +159,145 @@ For each prime $p\le2{,}000{,}000$, the framework computes or verifies:
    S(p)=\sum_{n=1}^{p-1}\chi_p(F_n);
    $$
 3. the residue class of $p$ modulo $20$;
-4. the roots of $x^2-x-1$ whenever the polynomial splits over $\mathbb F_p$;
-5. the quadratic residue/nonresidue labels of the roots;
-6. multiplicative orders and primitive-root conditions;
+4. the roots of $x^2-x-1$ when the polynomial splits over $\mathbb F_p$;
+5. quadratic residue/nonresidue labels of the roots;
+6. multiplicative-order and primitive-root checks;
 7. the structural identity
    $$
    S(p)=\chi_p(r_--r_+);
    $$
-8. the sign determined by the fifth-root discriminant criterion.
+8. the sign predicted by the fifth-root discriminant criterion.
 
-### Quadratic-character implementations
+The full-range generated data include:
 
-The code supports interchangeable methods for evaluating quadratic characters:
+```text
+results/fib_char_db_N2000000.csv
+results/corollary_B1_verification.csv
+results/CSV 's File/
+results/Code's_output/
+results/Excel_output/
+results/latex_tables/
+```
 
-- quadratic-residue lookup tables;
-- bitwise Jacobi-symbol computation;
-- modular exponentiation via Euler's criterion.
+> [!IMPORTANT]
+> The computed values are reproducibility and implementation checks.  
+> They are not numerical proofs of the mathematical statements.
 
-### Archived outputs
+---
 
-The reproducibility archive includes:
+## Reproducibility Release v1.0.1
 
-- complete prime lists;
-- computed ranks of apparition;
-- directly evaluated Fibonacci character sums;
-- diagnostic tables;
-- checkpoint files;
-- execution logs;
-- empirical verification reports;
-- publication-ready CSV, TXT, and XLSX artifacts.
+The current reproducibility release is:
 
-For detailed instructions and file descriptions, see:
+> **FibChar v1.0.1 — Reproducibility Release**  
+> DOI: [10.5281/zenodo.21431565](https://doi.org/10.5281/zenodo.21431565)
+
+The versioned release materials are located in:
+
+```text
+results/release-v1.0.1/
+```
+
+They include:
+
+- the versioned analysis program;
+- an Appendix-A self-test log;
+- a parallel smoke-test log for $N=10{,}000$;
+- CSV, JSON, TXT, XLSX, and LaTeX-table outputs;
+- an environment record;
+- command-line help output;
+- a release manifest;
+- SHA-256 checksums.
+
+The principal release files include:
+
+```text
+results/release-v1.0.1/
+├── MANIFEST.md
+├── SHA256SUMS-v1.0.1.txt
+├── self-test-v1.0.1.log
+├── smoke-N10000.log
+├── cli-help-v1.0.1.txt
+├── environment-v1.0.1.txt
+├── version-v1.0.1.txt
+├── fib_char_N10000_db.csv
+├── fib_char_N10000_empirical_claims.csv
+├── fib_char_N10000_main_theorem.csv
+├── fib_char_N10000_report.txt
+├── fib_char_N10000_report.xlsx
+├── fib_char_N10000_root_order_sign_checks.csv
+├── fib_char_N10000_summary.json
+└── latex_tables/
+```
+
+For a detailed account of the release contents and verification procedure, see:
 
 ➡️ [`docs/reproducibility.md`](docs/reproducibility.md)
 
 ---
 
-## Project Structure
-
-The repository is organized as follows.
+## Repository Structure
 
 ```text
 .
-├── paper/                       # Manuscript and submission materials
-│   ├── manuscript source files
-│   ├── bibliography
-│   ├── figures and tables
-│   └── submission-related files
+├── Paper/                           # Manuscript source and bibliography
+│   ├── main.tex
+│   └── references.bib
 │
-├── code/                        # Computational verification framework
-│   ├── verification scripts
-│   ├── rank-of-apparition computations
-│   ├── Fibonacci character-sum evaluation
-│   └── diagnostic and consistency checks
+├── code/                            # Versioned computational programs
+│   ├── Fibchar_v1-0-0.py
+│   └── Fibchar_v1-0-1.py
 │
-├── data/                        # Input and intermediate data
-│   ├── prime lists
-│   ├── computed invariants
-│   ├── intermediate tables
-│   └── reproducibility metadata
+├── docs/                            # Documentation and bibliography checks
+│   ├── reproducibility.md
+│   └── bibcheck_output/
 │
-├── results/                     # Generated computational artifacts
-│   ├── CSV outputs
-│   ├── TXT reports
-│   ├── XLSX tables
-│   ├── verification logs
-│   └── publication-ready artifacts
+├── results/                         # Generated computational artifacts
+│   ├── CSV 's File/
+│   ├── Code's_output/
+│   ├── Excel_output/
+│   ├── latex_tables/
+│   ├── phase6_5/
+│   ├── phase6_6/
+│   ├── phase6_v3/
+│   ├── phase7/
+│   ├── release-v1.0.1/
+│   ├── sanity_n10000/
+│   ├── corollary_B1_verification.csv
+│   └── fib_char_db_N2000000.csv
 │
-├── docs/                        # Documentation
-│   ├── reproducibility guide
-│   ├── implementation notes
-│   ├── version history
-│   └── project documentation
-│
+├── .gitattributes
+├── .gitignore
 ├── CITATION.cff
 ├── LICENSE
 ├── README.md
-└── requirements.txt
+└── Requirements.txt
 ```
+
+The authoritative release-specific artefacts are those in:
+
+```text
+results/release-v1.0.1/
+```
+
+---
+
+## Requirements
+
+The v1.0.1 release was prepared and tested with:
+
+```text
+Python 3.12.7
+```
+
+Required Python packages are listed in:
+
+```text
+Requirements.txt
+```
+
+> [!NOTE]
+> For the closest reproduction of the release environment, use Python 3.12.7 and install the package versions specified in `Requirements.txt`.
 
 ---
 
@@ -311,142 +310,148 @@ git clone https://github.com/Majid-Ghandali/fibonacci-character-sum-full-rank.gi
 cd fibonacci-character-sum-full-rank
 ```
 
-### 2. Create a virtual environment
+### 2. Check out the archived release tag
+
+For exact correspondence with the Zenodo v1.0.1 archive, check out the release tag:
+
+```bash
+git checkout v1.0.1
+```
+
+Alternatively, with recent Git versions:
+
+```bash
+git switch --detach v1.0.1
+```
+
+### 3. Create a virtual environment
 
 ```bash
 python -m venv .venv
 ```
 
-Activate it on **Windows PowerShell**:
+Activate it on Windows PowerShell:
 
 ```powershell
 .\.venv\Scripts\Activate.ps1
 ```
 
-Or on **macOS/Linux**:
+Activate it on macOS or Linux:
 
 ```bash
 source .venv/bin/activate
 ```
 
-### 3. Install dependencies
+### 4. Install dependencies
 
 ```bash
 python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
+python -m pip install -r Requirements.txt
+```
+
+### 5. Confirm the Python version
+
+```bash
+python --version
+```
+
+For the release environment, this should report:
+
+```text
+Python 3.12.7
 ```
 
 ---
 
 ## Usage
 
-Run the verification suite from the repository root:
+The release-version analysis program is:
 
-```bash
-python code/main.py
+```text
+code/Fibchar_v1-0-1.py
 ```
 
-> [!NOTE]
-> Full verification through $2{,}000{,}000$ may require substantial runtime, depending on the hardware and selected verification settings.
+From the repository root, inspect the command-line interface with:
 
-The archived outputs associated with the release are available in:
+```bash
+python code/Fibchar_v1-0-1.py --help
+```
 
-➡️ [`results/`](results/)
+The archived command-line help output is retained at:
 
-If the entry-point script is renamed in a later version, follow the release-specific instructions in:
+```text
+results/release-v1.0.1/cli-help-v1.0.1.txt
+```
+
+The release-specific commands, expected outputs, and verification workflow are documented in:
 
 ➡️ [`docs/reproducibility.md`](docs/reproducibility.md)
 
----
-
-## Structural Checks
-
-In addition to direct evaluation of $S(p)$, the code verifies the structural mechanism used in the proof.
-
-For every full-rank prime in the tested range, it confirms:
-
-- [x] splitting of $x^2-x-1$ over $\mathbb F_p$;
-- [x] residue/nonresidue labeling of the two roots;
-- [x] the order identity
-  $$
-  \operatorname{ord}(-r_-^2)=p-1;
-  $$
-- [x] primitivity of $r_-$ in $\mathbb F_p^\times$;
-- [x] the structural identity
-  $$
-  S(p)=\chi_p(r_--r_+);
-  $$
-- [x] the sign predicted by the fifth-root discriminant criterion.
-
-> [!TIP]
-> All listed checks passed with **zero exceptions** for primes $p\le2{,}000{,}000$ satisfying $\alpha(p)=p-1$.
+> [!IMPORTANT]
+> A complete computation through $p\le2{,}000{,}000$ may require substantial runtime and memory, depending on hardware and selected settings. The archived release includes output files, logs, manifests, and checksums, so re-executing the full computation is not necessary merely to inspect the reported data.
 
 ---
 
-## Auxiliary Empirical Observations
+## Integrity Verification
 
-The verification logs additionally retain broader observations labelled **E1--E10**.
+The release includes a SHA-256 checksum file:
 
-> [!WARNING]
-> These observations are included for documentation, reproducibility, and possible future investigation.  
-> **They are not used in the proof of the main theorem.**
+```text
+results/release-v1.0.1/SHA256SUMS-v1.0.1.txt
+```
 
-| Label | Description |
-|:--|:--|
-| E1 | $v_2(\pi)=v_2(p+1)+1$ on `DI` |
-| E2 | $\pi=4\alpha$ and $\alpha$ is odd on $Z\setminus\mathrm{DI}$ |
-| E3 | $\pi=\alpha$ on `cm_only` |
-| E4 | $\alpha\mid(p+1)$ for inert primes |
-| E5 | $\alpha\mid(p-1)$ for split primes |
-| E6 | Parity law for exponent $k$ controlled by $\chi_p(-1)$ |
-| E7 | Complementary parity law for exponent $k$ |
-| E8 | Full-rank sign theorem on the relevant full-rank class |
-| E9 | Additional structural regularities on selected subclasses |
-| E10 | Additional informational regularities on selected subclasses |
+The release manifest is:
 
-The identifiers `DI`, `Z`, and `cm_only` are the class labels used in the verification logs.
+```text
+results/release-v1.0.1/MANIFEST.md
+```
+
+On Linux or macOS, verify checksums from the repository root with:
+
+```bash
+cd results/release-v1.0.1
+sha256sum -c SHA256SUMS-v1.0.1.txt
+```
+
+On Windows PowerShell, individual files can be checked with:
+
+```powershell
+Get-FileHash .\results\release-v1.0.1\self-test-v1.0.1.log -Algorithm SHA256
+```
+
+Compare the resulting hash with the corresponding entry in:
+
+```text
+results/release-v1.0.1/SHA256SUMS-v1.0.1.txt
+```
+
+> [!NOTE]
+> The repository uses `.gitattributes` rules designed to preserve original byte content for release artefacts. This is necessary for SHA-256 checksum verification.
 
 ---
 
 ## Zenodo Archive
 
-This repository is archived through [Zenodo](https://zenodo.org/).
+The citable archival copy of the v1.0.1 reproducibility release is hosted on Zenodo:
 
-| Archive identifier | DOI |
+| Release | DOI |
 |:--|:--|
-| **Current version DOI** | [`ZENODO_VERSION_DOI`](https://doi.org/ZENODO_VERSION_DOI) |
-| **Concept DOI** | [`ZENODO_CONCEPT_DOI`](https://doi.org/ZENODO_CONCEPT_DOI) |
+| **FibChar v1.0.1** | [10.5281/zenodo.21431565](https://doi.org/10.5281/zenodo.21431565) |
 
-### DOI policy
+The Zenodo DOI identifies a fixed archived release. For reproducibility and citation, use the DOI corresponding to the exact release version used.
 
-- The **Version DOI** identifies one fixed and immutable archived release.
-- The **Concept DOI** identifies the repository across all archived versions and resolves to the latest Zenodo release.
-- For reproducibility and for citation in the manuscript, use the **Version DOI** corresponding exactly to the GitHub release used in the research.
+The GitHub release page is available at:
 
-### Creating a new archived release
-
-1. Finalize `README.md`, `CITATION.cff`, `LICENSE`, manuscript files, code, data, results, and documentation.
-2. Commit all release-ready changes.
-3. Create and push an annotated version tag:
-
-   ```bash
-   git tag -a v1.1.0 -m "Version 1.1.0: final reproducibility archive"
-   git push origin v1.1.0
-   ```
-
-4. Create a GitHub Release from that tag.
-5. Confirm that Zenodo has archived the corresponding snapshot.
-6. Record the new Zenodo **Version DOI** in the paper bibliography.
-7. Compile the final manuscript PDF only after checking that the DOI resolves to the intended archived release.
+➡️ [GitHub Releases](https://github.com/Majid-Ghandali/fibonacci-character-sum-full-rank/releases)
 
 ---
 
 ## Citation
 
-If this repository contributes to your research, please cite both:
+If this repository contributes to your research, please cite:
 
-1. the accompanying mathematical paper; and
-2. the archived reproducibility package on Zenodo.
+1. the accompanying mathematical manuscript; and
+2. the archived reproducibility release.
 
 Citation metadata is available in:
 
@@ -457,13 +462,15 @@ Citation metadata is available in:
 ```bibtex
 @software{Ghandali2026FibonacciCharacterSumArchive,
   author    = {Ghandali, Majid},
-  title     = {Reproducibility Archive for ``An Explicit Evaluation of a
-               {F}ibonacci Character Sum for Primes with Full Rank of Apparition''},
+  title     = {{FibChar v1.0.1}: Reproducibility Materials for
+               ``An Explicit Evaluation of a {F}ibonacci Character Sum
+               for Primes with Full Rank of Apparition''},
   year      = {2026},
-  version   = {v1.1.0},
+  version   = {v1.0.1},
   publisher = {Zenodo},
-  doi       = {ZENODO_VERSION_DOI},
-  url       = {https://doi.org/ZENODO_VERSION_DOI}
+  doi       = {10.5281/zenodo.21431565},
+  url       = {https://doi.org/10.5281/zenodo.21431565},
+  note      = {Reproducibility archive}
 }
 ```
 
@@ -479,6 +486,12 @@ Citation metadata is available in:
 }
 ```
 
+For the manuscript’s internal bibliography, the reproducibility archive is cited using its established bibliography key:
+
+```latex
+\cite{Ghandali2026}
+```
+
 ---
 
 ## License
@@ -492,5 +505,5 @@ This project is released under the [MIT License](LICENSE).
 **Majid Ghandali**  
 Independent Researcher  
 
-📧 Email: [majid.ghandali@gmail.com](mailto:majid.ghandali@gmail.com)  
-🆔 ORCID: [0009-0001-1097-1770](https://orcid.org/0009-0001-1097-1770)
+Email: [majid.ghandali@gmail.com](mailto:majid.ghandali@gmail.com)  
+ORCID: [0009-0001-1097-1770](https://orcid.org/0009-0001-1097-1770)
