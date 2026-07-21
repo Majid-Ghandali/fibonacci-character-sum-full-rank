@@ -95,18 +95,15 @@ $$
 Then
 
 $$
-p\equiv11\pmod{20}
-$$\qquad\text{or}\qquad$$
-p\equiv19\pmod{20},
+p\equiv11\pmod{20}\quad\text{or}\quad p\equiv19\pmod{20},
 $$
 
 and
 
 $$
-S(p)=\sum_{n=1}^{p-1}\chi_p(F_n)
-=
+S(p)=\sum_{n=1}^{p-1}\chi_p(F_n)=
 \begin{cases}
-+1, & p\equiv11\pmod{20},\\[2mm]
++1, & p\equiv11\pmod{20},\\
 -1, & p\equiv19\pmod{20}.
 \end{cases}
 $$
@@ -486,7 +483,7 @@ Citation metadata is available in:
 }
 ```
 
-For the manuscript’s internal bibliography, the reproducibility archive is cited using its established bibliography key:
+For the manuscript's internal bibliography, the reproducibility archive is cited using its established bibliography key:
 
 ```latex
 \cite{Ghandali2026}
