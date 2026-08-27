@@ -152,17 +152,13 @@ For each relevant prime, the computations include, as applicable:
 
 1. the rank of apparition $\alpha(p)$;
 2. the direct Fibonacci character sum
-   $$
-   S(p)=\sum_{n=1}^{p-1}\chi_p(F_n);
-   $$
+   $$S(p)=\sum_{n=1}^{p-1}\chi_p(F_n);$$
 3. the residue class of $p$ modulo $20$;
 4. the roots of $x^2-x-1$ when the polynomial splits over $\mathbb F_p$;
 5. quadratic residue/nonresidue labels of the roots;
 6. multiplicative-order and primitive-root checks;
 7. the structural identity
-   $$
-   S(p)=\chi_p(r_--r_+);
-   $$
+   $$S(p)=\chi_p(r_--r_+);$$
 8. the sign predicted by the fifth-root discriminant criterion.
 
 The full-range generated data include:
