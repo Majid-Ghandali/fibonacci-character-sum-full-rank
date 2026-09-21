@@ -10,3 +10,16 @@
 *.pdf binary
 *.spl binary
 desktop.ini export-ignore
+
+__pycache__/
+*.py[cod]
+*.nbc
+*.nbi
+Paper/*.aux
+Paper/*.bbl
+Paper/*.blg
+Paper/*.log
+Paper/*.out
+Paper/*.spl
+desktop.ini
+
