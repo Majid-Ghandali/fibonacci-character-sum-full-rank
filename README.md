@@ -3,8 +3,8 @@
 [![GitHub Release](https://img.shields.io/github/v/release/Majid-Ghandali/fibonacci-character-sum-full-rank?display_name=tag\&sort=semver)](https://github.com/Majid-Ghandali/fibonacci-character-sum-full-rank/releases)
 [![Manuscript DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22803009.svg)](https://doi.org/10.5281/zenodo.22803009)
 [![Code Archive DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21431565.svg)](https://doi.org/10.5281/zenodo.21431565)
-[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](LICENSE)
-[![Python](https://img.shields.io/badge/Python-3.11%2B-blue.svg)](https://www.python.org/)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightRED.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.12.7%2B-YELLOW.svg)](https://www.python.org/)
 
 > **Research compendium** — manuscript source, verification software, computational results, and reproducibility records
 > **Majid Ghandali** · Independent Researcher, Tehran, Iran · 2026
@@ -89,12 +89,8 @@ $$
 and
 
 $$
-S(p)
-=
-\sum_{n=1}^{p-1}\chi_p(F_n)
-=
-\begin{cases}
-+1,&p\equiv11\pmod{20},\\[2mm]
+S(p)=\sum_{n=1}^{p-1}\chi_p(F_n)=\begin{cases}
++1,&p\equiv11\pmod{20},\\
 -1,&p\equiv19\pmod{20}.
 \end{cases}
 $$
@@ -654,4 +650,5 @@ Any future separation of manuscript licensing from software licensing should be 
 Independent Researcher, Tehran, Iran
 
 Email: [majid.ghandali@gmail.com](mailto:majid.ghandali@gmail.com)
+
 ORCID: [0009-0001-1097-1770](https://orcid.org/0009-0001-1097-1770)
