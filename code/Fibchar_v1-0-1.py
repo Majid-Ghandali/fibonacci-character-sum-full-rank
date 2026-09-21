@@ -9,7 +9,8 @@ Reproducibility code for:
     "An Explicit Evaluation of a Fibonacci Character Sum
      for Primes of Full Rank of Apparition"
     Majid Ghandali  --  Journal of Number Theory (submitted)
-
+    
+    Zenodo release : https://doi.org/10.5281/zenodo.21431565
     GitHub : https://github.com/Majid-Ghandali/fibonacci-character-sum-full-rank
     Previous Zenodo release : https://doi.org/10.5281/zenodo.20707467
 
