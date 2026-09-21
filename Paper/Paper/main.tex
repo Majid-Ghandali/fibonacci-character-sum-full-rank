@@ -1,0 +1,731 @@
+\documentclass[preprint,5p,times,twocolumn]{elsarticle}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{amstext}
+\usepackage{hyperref}
+\usepackage[nameinlink]{cleveref}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{microtype}
+
+%% ---- cleveref labels for custom environments ----
+\crefname{lemma}{Lemma}{Lemmas}
+\crefname{proposition}{Proposition}{Propositions}
+\crefname{theorem}{Theorem}{Theorems}
+\crefname{remark}{Remark}{Remarks}
+\crefname{conjecture}{Conjecture}{Conjectures}
+\crefname{definition}{Definition}{Definitions}
+
+\journal{Journal of Number Theory}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue
+}
+
+\pdfstringdefDisableCommands{%
+  \def\F{F}\def\Z{Z}\def\Q{Q}\def\R{R}\def\N{N}%
+  \def\QR{QR}\def\NQR{NQR}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{definition}[theorem]{Definition}
+
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\DeclareMathOperator{\ord}{ord}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Leg}[2]{\left(\frac{#1}{#2}\right)}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\QR}{\mathrm{QR}}
+\newcommand{\NQR}{\mathrm{NQR}}
+
+\bibliographystyle{elsarticle-num}
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{An Explicit Evaluation of a Fibonacci Character Sum 
+for Primes with Full Rank of Apparition}
+
+\author[aff1]{Majid Ghandali}
+\address[aff1]{Independent Researcher}
+
+\begin{abstract}
+Let $p\ge 7$ be a prime, $\chi_p$ the quadratic character mod $p$, 
+and $(F_n)$ the Fibonacci sequence. The rank of apparition 
+$\alpha(p)$ is the smallest $m\ge 1$ with $p\mid F_m$. 
+Classically $\alpha(p)\mid p-\chi_p(5)$; hence the extremal 
+condition $\alpha(p)=p-1$ forces $p\equiv\pm 1\pmod 5$.
+
+In this full-rank regime we show first that $p\equiv 3\pmod 4$ 
+and that the quadratic nonresidue root of $x^2-x-1$ in $\F_p$ 
+is a primitive root of $\F_p^\times$. The Fibonacci character 
+sum then collapses to
+\[
+\sum_{n=1}^{p-1}\chi_p(F_n)=
+\begin{cases}+1,& p\equiv 11\pmod{20},\\
+              -1,& p\equiv 19\pmod{20}.\end{cases}
+\]
+The proof reduces the sum to a single character value 
+$\chi_p(r_- - r_+)$, where $r_-$ and $r_+$ denote the 
+nonresidue and residue roots of $x^2-x-1$, via a 
+primitive-root substitution; this value is then identified 
+through a discriminant criterion linking the roots of 
+$x^2-x-1$ to fifth roots of unity in $\F_p$. The result may 
+be viewed as a Fibonacci analogue of an Artin-type primitivity 
+condition. The theoretical result is accompanied by an 
+independent computational verification up to $2\times 10^6$.
+\end{abstract}
+
+\begin{keyword}
+Fibonacci numbers \sep Lucas sequences \sep character sums 
+\sep rank of apparition \sep primitive roots \sep fifth roots of unity
+\MSC[2020] 11B39 \sep 11A15 \sep 11L40 \sep 11Y60
+\end{keyword}
+
+\end{frontmatter}
+
+\section{Introduction}\label{sec:intro}
+
+The Fibonacci sequence $(F_n)_{n\ge 0}$, $F_0=0$, $F_1=1$, 
+$F_{n+1}=F_n+F_{n-1}$, is the prototypical non-degenerate 
+binary linear recurrence. For a prime $p\ne 5$, its mod-$p$ 
+behaviour is encoded by two classical invariants: the 
+\emph{Pisano period} $\pi(p)$ and the \emph{rank of apparition}
+\[
+\alpha(p):=\min\{m\ge 1:p\mid F_m\}.
+\]
+A classical result going back to Lucas \cite{Lucas1878} states
+\begin{equation}\label{eq:rank-divides}
+\alpha(p)\mid p-\chi_p(5),
+\end{equation}
+where $\chi_p$ denotes the quadratic character. Hence in the 
+split case $\chi_p(5)=1$, equivalently $p\equiv\pm 1\pmod 5$, 
+the maximal possible value of $\alpha(p)$ is $p-1$.
+Throughout this paper, the term \emph{full-rank regime} refers to the
+extremal split value $\alpha(p)=p-1$; the hypothesis itself will
+force the split case.
+
+\subsection{The Fibonacci character sum}
+
+We study
+\[
+S(p):=\sum_{n=1}^{p-1}\chi_p(F_n).
+\]
+A priori $S(p)$ might be expected to fluctuate as $p$ varies, 
+much like character sums attached to general linear recurrences 
+\cite{Williams1982,Sun1992,Sun2003}. Our main theorem shows that 
+in the extremal regime $\alpha(p)=p-1$ this apparent complexity 
+collapses completely.
+
+\begin{theorem}[Main Theorem]\label{thm:main}
+Let $p\ge 7$ be a prime with $\alpha(p)=p-1$. Then 
+$p\equiv 11\pmod{20}$ or $p\equiv 19\pmod{20}$, and
+\[
+S(p)=
+\begin{cases}+1,& p\equiv 11\pmod{20},\\
+              -1,& p\equiv 19\pmod{20}.\end{cases}
+\]
+\end{theorem}
+
+\subsection{Why this regime?}
+
+The hypothesis $\alpha(p)=p-1$ has an intrinsic primitive-root 
+interpretation. In the split case, \Cref{lem:rank-order} below 
+identifies $\alpha(p)$ with the order of $-r^2$, where $r$ is 
+either root of $x^2-x-1$ in $\F_p$. The condition is thus a 
+\emph{Fibonacci analogue} of the kind of primitivity condition 
+studied in Artin's primitive root conjecture.
+
+The non-obvious content of \Cref{lem:G} below is that full rank 
+first forces the split case and the congruence $p\equiv3\pmod4$, 
+and then the primitivity of $-r_-^2$ lifts to the nonresidue root 
+$r_-$ itself. The lifting mechanism is purely group-theoretic: 
+since $r_-$ is a nonresidue, $-1\in\langle r_-\rangle$, and hence 
+$-r_-^2\in\langle r_-\rangle$; as $-r_-^2$ already has order 
+$p-1$, the root $r_-$ must be primitive. This lift is what drives 
+the entire evaluation of $S(p)$.
+
+\subsection{Outline of the proof}
+
+The proof proceeds in three steps.
+\begin{enumerate}[label=\textup{Step \Roman*.}, leftmargin=*]
+\item \emph{Primitivity.}
+We show that $\alpha(p)=p-1$ forces $x^2-x-1$ to split over 
+$\F_p$, forces $p\equiv 3\pmod 4$, and makes the nonresidue root 
+$r_-$ a primitive root of $\F_p^\times$ (\Cref{lem:G}).
+\item \emph{Structural identity.}
+Using Binet's formula and Step~I, the substitution $u=r_-^n$ 
+converts the index $n$ into a complete traversal of $\F_p^\times$ 
+and yields $S(p)=\chi_p(r_- - r_+)$ (\Cref{prop:structural}).
+\item \emph{Explicit sign.}
+A discriminant criterion linking the roots of $x^2-x-1$ to fifth 
+roots of unity in $\F_p$ determines $\chi_p(r_- - r_+)$ in 
+closed form (\Cref{lem:R3}).
+\end{enumerate}
+
+\subsection{Related literature}
+
+The arithmetic of Fibonacci/Lucas sequences modulo primes begins 
+with Lucas \cite{Lucas1878} and Wall \cite{Wall1960}; standard 
+treatments are \cite{Vajda1989,Koshy2001,Lemmermeyer2000,
+IrelandRosen1990}. Distribution of $\alpha(p)$ and related 
+Pisano quantities is studied in \cite{Renault1996,BallotElia2007,
+SomerKrizek2014,FiebigMbirikaSpilker2025}. Recent investigations 
+on the $p$-adic and arithmetic structure of Lucas-type sequences 
+include \cite{BragmanRowland2025,HajduTijdeman2025}. Character 
+sums attached to linear recurrences appear in 
+\cite{Williams1982,Sun1992,Sun2003,BerndtEvansWilliams1998}. 
+The primitive-root perspective connects the full-rank condition 
+with Artin-type problems; see the survey \cite{Moree2012} and 
+Hooley's conditional density theorem \cite{Hooley1967} for the 
+classical setting. To the best of the author's knowledge, the structural reduction
+\(S(p)=\chi_p(r_- - r_+)\) and the resulting explicit evaluation
+of \(S(p)\) in the full-rank regime \(\alpha(p)=p-1\) do not appear
+to have been recorded previously.
+
+\subsection{Organisation}
+
+\Cref{sec:preliminaries} sets notation. \Cref{sec:structure} 
+proves the primitivity result (Step~I). 
+\Cref{sec:character-sums,sec:structural-identity} carry out 
+Step~II. \Cref{sec:sign} executes Step~III. 
+\Cref{sec:main-proof} assembles the main theorem. 
+\Cref{sec:computations} reports the computational verification, 
+and \Cref{sec:conclusion} states explicit density and 
+generalisation questions.
+
+\section{Preliminaries}\label{sec:preliminaries}
+
+Throughout, $p$ denotes an odd prime $\ne 5$, with $p\ge 7$ 
+unless explicitly stated otherwise. We use the standard extension 
+of the quadratic character to all of $\F_p$ by setting 
+$\chi_p(0)=0$, and recall that 
+$\chi_p(-1)=(-1)^{(p-1)/2}$. We write
+\[
+\QR_p^\times=\{u\in\F_p^\times:\chi_p(u)=+1\},\qquad
+\NQR_p=\{u\in\F_p^\times:\chi_p(u)=-1\}.
+\]
+
+When $p\equiv\pm 1\pmod 5$, the polynomial $x^2-x-1$ splits 
+over $\F_p$. Fix a square root $s\in\F_p$ of $5$, and write 
+its two roots as
+\[
+r_1=\frac{1+s}{2},\qquad r_2=\frac{1-s}{2}.
+\]
+Then $r_1+r_2=1$, $r_1\,r_2=-1$, and $r_1-r_2=s$. The Binet 
+formula holds in $\F_p$:
+\begin{equation}\label{eq:binet}
+F_m=\frac{r_1^m-r_2^m}{r_1-r_2}.
+\end{equation}
+After the quadratic-character analysis in \Cref{lem:G}, in the 
+full-rank case we shall denote the nonresidue root by $r_-$ and 
+the residue root by $r_+$, so that
+\[
+\chi_p(r_-)= -1,\qquad \chi_p(r_+)=+1,\qquad
+r_-+r_+=1,\qquad r_-\,r_+=-1.
+\]
+The Binet formula may then be written as
+$F_m=(r_-^m-r_+^m)/(r_- - r_+)$.
+The choice of $s$ will additionally be fixed by $\chi_p(s)=+1$ 
+in \Cref{sec:sign}; this is independent of the labels 
+$r_\pm$, which are determined by quadratic character.
+
+\subsection*{Elementary group-theoretic facts}
+
+\begin{lemma}[Quadratic character in a cyclic group]
+\label{lem:cyclic-character}
+Let $g$ be a primitive root of $\F_p^\times$. Then 
+$\chi_p(g^k)=(-1)^k$ for every integer $k$.
+\end{lemma}
+
+\begin{proof}
+The nonzero squares in $\F_p^\times$ are exactly the even powers 
+of $g$. Since $p-1$ is even, the parity of $k$ is well-defined 
+modulo $p-1$.
+\end{proof}
+
+\begin{lemma}[Primitive-root reindexing]
+\label{lem:primitive-reindexing}
+Let $g$ be a primitive root of $\F_p^\times$. The map 
+$n\mapsto g^n$ from $\{1,\dots,p-1\}$ to $\F_p^\times$ is a 
+bijection. Consequently, for any function 
+$H:\F_p^\times\to A$ with $A$ abelian,
+\[
+\sum_{n=1}^{p-1} H(g^n)=\sum_{u\in\F_p^\times} H(u).
+\]
+Moreover, $\chi_p(g^n)=(-1)^n$ for $1\le n\le p-1$.
+\end{lemma}
+
+\begin{proof}
+Since $g$ has order $p-1$, the powers $g,g^2,\dots,g^{p-1}$ are 
+exactly the elements of $\F_p^\times$, each occurring once. The 
+character formula follows from \Cref{lem:cyclic-character}.
+\end{proof}
+
+\begin{lemma}[Fifth roots and the cyclotomic polynomial]
+\label{lem:phi5-order}
+Let $K$ be a field of characteristic $\ne5$, and let 
+$\Phi_5(X)=X^4+X^3+X^2+X+1$.
+For $z\in K$: $\Phi_5(z)=0$ if and only if $z\in K^\times$, 
+$z^5=1$, and $z\ne 1$. In particular, $\Phi_5(z)=0$ implies 
+$\ord(z)=5$.
+\end{lemma}
+
+\begin{proof}
+From $X^5-1=(X-1)\Phi_5(X)$: if $\Phi_5(z)=0$ then $z^5=1$; 
+and $\Phi_5(1)=5\ne0$ gives $z\ne1$. Conversely, $z^5=1$ and 
+$z\ne1$ force $(z-1)\Phi_5(z)=0$ and $z-1\ne0$, so $\Phi_5(z)=0$.
+\end{proof}
+
+\section{The structure lemmas (Step~I)}\label{sec:structure}
+
+Throughout this section, $p$ denotes an odd prime with $p\ne5$. 
+Whenever roots are used as elements of $\F_p$, the splitting 
+hypothesis will be stated explicitly.
+
+\begin{lemma}[Rank--order identity]\label{lem:rank-order}
+Let $r_1,r_2$ be the two roots of $x^2-x-1$ in $\F_{p^2}$, and put
+$q=r_1/r_2$. Then $\alpha(p)=\ord_{\F_{p^2}^\times}(q)$.
+In particular, if $x^2-x-1$ splits over $\F_p$, then for each 
+root $r\in\F_p$, $\alpha(p)=\ord_{\F_p^\times}(-r^2)$.
+\end{lemma}
+
+\begin{proof}
+Since $p\ne5$, the roots are distinct. Binet's formula in 
+$\F_{p^2}$ gives $F_m\equiv0\pmod p \iff r_1^m=r_2^m \iff q^m=1$, 
+so $\alpha(p)=\ord(q)$. In the split case, fix a root \(r\in\F_p\). The other root is \(-r^{-1}\), since the product of the roots is \(-1\). Thus the
+ratio \(r_1/r_2\) is either \(-r^2\) or its inverse, depending on
+the ordering of \(r_1,r_2\). These two elements have the same
+multiplicative order. Hence
+\[
+\alpha(p)=\ord_{\F_p^\times}(-r^2).
+\]
+\end{proof}
+
+\begin{lemma}[Primitive root mechanism in the full-rank regime]
+\label{lem:G}
+Let $p\ge 7$ be a prime such that $\alpha(p)=p-1$. Then
+$x^2-x-1$ splits over $\F_p$, and $p\equiv 3\pmod 4$. Label its two
+roots $r_+,r_-\in\F_p^\times$ by their quadratic characters:
+$\chi_p(r_+)=+1$, $\chi_p(r_-)=-1$.
+Then
+\[
+\ord_{\F_p^\times}(-r_-^2)=p-1
+\quad\text{and}\quad
+\ord_{\F_p^\times}(r_-)=p-1.
+\]
+In particular, $r_-$ is a primitive root of $\F_p^\times$.
+\end{lemma}
+
+\begin{proof}
+Let \(r_1,r_2\) be the two roots of \(x^2-x-1\) in \(\F_{p^2}\),
+and put \(q=r_1/r_2\).
+
+\emph{Splitting.} Suppose $x^2-x-1$ does not split over $\F_p$. 
+The Frobenius endomorphism $\varphi\colon x\mapsto x^p$ of 
+$\F_{p^2}$ fixes $\F_p$ pointwise and interchanges the two 
+roots of any irreducible quadratic over $\F_p$; hence 
+$r_1^p=r_2$ and $r_2^p=r_1$. Thus
+\[
+q^p=\frac{r_1^p}{r_2^p}=\frac{r_2}{r_1}=q^{-1},
+\]
+giving $q^{p+1}=1$ and $\ord(q)\mid p+1$. By 
+\Cref{lem:rank-order}, $\alpha(p)\mid p+1$, so $p-1\mid p+1$, 
+hence $p-1\mid 2$, contradicting $p\ge7$. Therefore $x^2-x-1$ 
+splits over $\F_p$.
+
+\emph{Congruence $p\equiv3\pmod4$.} Let $r$ be either root in 
+$\F_p$. By the split-case part of \Cref{lem:rank-order},
+$\ord(-r^2)=p-1$. If $\chi_p(-1)=+1$, then $-r^2$ is a nonzero 
+square and hence lies in a subgroup of $\F_p^\times$ of order 
+$(p-1)/2<p-1$, contradicting $\ord(-r^2)=p-1$. Hence 
+$\chi_p(-1)=-1$, i.e.\ $p\equiv3\pmod4$.
+
+\emph{Existence of $r_\pm$.} Since $r_1r_2=-1$ and 
+$\chi_p(-1)=-1$, we have $\chi_p(r_1)\chi_p(r_2)=-1$, so exactly 
+one root is a residue and the other a nonresidue. Label them 
+$r_+$ and $r_-$ accordingly.
+
+\emph{Order of $-r_-^2$.} By \Cref{lem:rank-order} applied to 
+$r_-$: $\ord(-r_-^2)=\alpha(p)=p-1$.
+
+\emph{Primitivity of $r_-$.} Since $\chi_p(r_-)=-1$, Euler's 
+criterion gives $r_-^{(p-1)/2}=-1$, so $-1\in\langle r_-\rangle$. 
+Since also $r_-^2\in\langle r_-\rangle$, we have 
+$-r_-^2\in\langle r_-\rangle$. But $\ord(-r_-^2)=p-1$, so the 
+subgroup $\langle r_-\rangle$ contains an element of order 
+$p-1=|\F_p^\times|$. Therefore $\langle r_-\rangle=\F_p^\times$ 
+and $\ord(r_-)=p-1$.
+\end{proof}
+
+\begin{remark}[The content of \Cref{lem:G}]\label{rem:content-G}
+The content of \Cref{lem:G} is threefold: full rank forces 
+\(x^2-x-1\) to split over \(\F_p\) (by a Frobenius argument), 
+forces \(p\equiv 3\pmod 4\), and lifts the primitivity of 
+\(-r_-^2\) to \(r_-\) itself via \(-1\in\langle r_-\rangle\). 
+This is the structural fact that makes the substitution
+\(u=r_-^n\) in Step~II a bijection onto \(\F_p^\times\), and it is
+the key structural input in the evaluation of \(S(p)\).
+\end{remark}
+
+\begin{remark}[Order of the residue root]
+In the full-rank regime, put \(n=(p-1)/2\). Since
+\(p\equiv3\pmod4\), \(n\) is odd, and since \(r_-\) is primitive,
+\(r_-^n=-1\). From \(r_-r_+=-1\), we get
+\[
+r_+=-r_-^{-1}=r_-^{n-1}.
+\]
+Writing \(p=4m+3\), so \(n=2m+1\), gives
+\[
+\ord(r_+)=\frac{p-1}{\gcd(p-1,n-1)}
+=\frac{4m+2}{\gcd(4m+2,2m)}
+=\frac{4m+2}{2}
+=\frac{p-1}{2}.
+\]
+\end{remark}
+
+
+\section{Character sum identities}\label{sec:character-sums}
+
+\begin{lemma}\label{lem:S}
+For every $a\in\F_p^\times$,
+$\displaystyle\sum_{x\in\F_p}\chi_p(x^2-a)=-1$.
+\end{lemma}
+
+\begin{proof}
+This is classical; see \cite{IrelandRosen1990}. 
+Put
+\[
+T(a):=\sum_{x\in\F_p}\chi_p(x^2-a).
+\]
+Using $\#\{x:x^2=t\}=1+\chi_p(t)$ and $\sum_t\chi_p(t-a)=0$,
+\[
+T(a)=\sum_{t\in\F_p}\bigl(1+\chi_p(t)\bigr)\chi_p(t-a)
+=\sum_t\chi_p\bigl(t(t-a)\bigr).
+\]
+The substitution $t=aw$ shows $T(a)$ is independent of $a\ne0$.
+Since $T(0)=p-1$ and $\sum_{a\in\F_p}T(a)=0$, the common value 
+is $-1$.
+\end{proof}
+
+\begin{lemma}\label{lem:D}
+If $p\equiv 3\pmod 4$, the map $u\mapsto -u$ is a bijection 
+$\QR_p^\times\to\NQR_p$.
+\end{lemma}
+
+\begin{proof}
+$\chi_p(-u)=\chi_p(-1)\chi_p(u)=-\chi_p(u)$, and both sets 
+have cardinality $(p-1)/2$.
+\end{proof}
+
+\begin{lemma}\label{lem:Q}
+If $p\equiv 3\pmod 4$, then
+\[
+A:=\sum_{u\in\QR_p^\times}\chi_p(u^2-1)=0,\qquad
+B:=\sum_{u\in\NQR_p}\chi_p(u^2+1)=-1.
+\]
+\end{lemma}
+
+\begin{proof}
+By \Cref{lem:S} with $a=1$, isolating the $x=0$ term 
+(where $\chi_p(-1)=-1$):
+\[
+\sum_{x\in\F_p^\times}\chi_p(x^2-1)
+=-1-\chi_p(-1)=0.
+\]
+Since $(-u)^2-1=u^2-1$, the involution $u\mapsto-u$ maps 
+$\QR_p^\times\to\NQR_p$ bijectively (\Cref{lem:D}), giving
+\[
+A=\sum_{u\in\QR_p^\times}\chi_p(u^2-1)
+ =\sum_{v\in\NQR_p}\chi_p(v^2-1).
+\]
+Hence $2A=\sum_{x\in\F_p^\times}\chi_p(x^2-1)=0$, so $A=0$.
+
+By \Cref{lem:S} with $a=-1$, isolating $x=0$ 
+(where $\chi_p(1)=+1$):
+\[
+\sum_{x\in\F_p^\times}\chi_p(x^2+1)=-1-1=-2.
+\]
+Since $(-u)^2+1=u^2+1$, the same involution gives 
+$\sum_{u\in\NQR_p}\chi_p(u^2+1)=\sum_{v\in\QR_p^\times}\chi_p(v^2+1)$.
+Thus $2B=-2$ and $B=-1$.
+\end{proof}
+
+\section{The structural identity (Step~II)}\label{sec:structural-identity}
+
+\begin{proposition}\label{prop:structural}
+Let $p\ge 7$ with $\alpha(p)=p-1$. Then
+\[
+S(p)=\chi_p(r_- - r_+),
+\]
+where $r_-$ and $r_+$ are the nonresidue and residue roots of 
+$x^2-x-1$ in $\F_p$.
+\end{proposition}
+
+\begin{proof}
+Let $D=r_- - r_+$. Since the discriminant of $x^2-x-1$ is 
+$5\ne0$ in $\F_p$, we have $D\ne0$. Since $r_+=-r_-^{-1}$, 
+Binet's formula gives
+\[
+F_n=\frac{r_-^n-(-1)^n r_-^{-n}}{D}.
+\]
+By \Cref{lem:G}, $r_-$ is a primitive root of $\F_p^\times$. 
+By \Cref{lem:primitive-reindexing}, $n\mapsto u=r_-^n$ is a 
+bijection $\{1,\dots,p-1\}\to\F_p^\times$ with 
+$\chi_p(u)=(-1)^n$. Setting $\varepsilon:=\chi_p(D)$:
+\[
+\chi_p(F_n)=\varepsilon\cdot\chi_p\!\bigl(u-\chi_p(u)u^{-1}\bigr).
+\]
+For $u\in\QR_p^\times$ ($\chi_p(u)=+1$): contribution 
+$\varepsilon\,\chi_p(u^2-1)$.  
+For $u\in\NQR_p$ ($\chi_p(u)=-1$): contribution 
+$-\varepsilon\,\chi_p(u^2+1)$.
+By \Cref{lem:Q}, $A=0$ and $B=-1$, so
+\[
+S(p)=\varepsilon(A-B)=\varepsilon\bigl(0-(-1)\bigr)
+=\varepsilon=\chi_p(r_- - r_+).\qedhere
+\]
+\end{proof}
+
+\begin{remark}
+The $n=p-1$ term (where $u=1$, $u^2-1=0$) contributes $0$ to 
+$A$ and does not affect the sum.
+\end{remark}
+
+\section{Explicit sign via fifth roots of unity (Step~III)}
+\label{sec:sign}
+
+Assume $p\equiv 3\pmod 4$ and $p\equiv\pm 1\pmod 5$. Since 
+$\chi_p(5)=1$, choose $s\in\F_p$ with $s^2=5$ and 
+$\chi_p(s)=+1$ (the two square roots of $5$ have opposite 
+characters since $\chi_p(-1)=-1$). Put
+\[
+\phi=\tfrac{1+s}{2},\qquad \psi=\tfrac{1-s}{2}.
+\]
+These are the two roots of $x^2-x-1$. The labels $r_-,r_+$ 
+will be identified in \Cref{lem:R3}.
+
+\begin{lemma}\label{lem:R0}
+There exists $z\in\F_p^\times$ with $z^5=1$ and $z\ne 1$ if 
+and only if $p\equiv 1\pmod 5$.
+\end{lemma}
+
+\begin{proof}
+$\F_p^\times$ is cyclic of order $p-1$; it contains an element 
+of order $5$ iff $5\mid p-1$.
+\end{proof}
+
+\begin{lemma}[Discriminant criterion]\label{lem:R2}
+Let $t=(s-1)/2$ and $\Delta=t^2-4$. Then $\Delta\ne0$ and
+\[
+\chi_p(\Delta)=
+\begin{cases}+1,& p\equiv 1\pmod 5,\\
+              -1,& p\equiv -1\pmod 5.\end{cases}
+\]
+\end{lemma}
+
+\begin{proof}
+\emph{Setup.} From $s^2=5$, one computes $t^2+t-1=0$ and 
+$\Delta=-t-3$. If $\Delta=0$ then $t=-3$, giving $5=0$ in 
+$\F_p$, contradicting $p\ne5$.
+
+\emph{($\Rightarrow$):} By the discriminant criterion, 
+$\chi_p(\Delta)=+1$ iff $Z^2-tZ+1=0$ has a root $z\in\F_p$. 
+Any such $z$ satisfies $z+z^{-1}=t$, hence $z^2+z^{-2}=t^2-2$, 
+and therefore
+\[
+(z^2+z^{-2})+(z+z^{-1})+1=(t^2-2)+t+1=t^2+t-1=0.
+\]
+Multiplying by $z^2$ gives $\Phi_5(z)=0$; by 
+\Cref{lem:phi5-order}, $\ord(z)=5$, so $p\equiv1\pmod5$ by 
+\Cref{lem:R0}.
+
+\emph{($\Leftarrow$):} Assume $p\equiv1\pmod5$. Choose 
+$z_0\in\F_p^\times$ of order $5$ and set $\tau=z_0+z_0^{-1}$. 
+From $\Phi_5(z_0)=0$ one deduces $\tau^2+\tau-1=0$. The two 
+roots of $X^2+X-1$ over $\F_p$ are $t$ and $-1-t$.
+
+If $\tau=t$, then $z_0$ satisfies $z_0^2-tz_0+1=0$, giving 
+$\chi_p(\Delta)=+1$.
+
+If $\tau=-1-t$, set $z_1=z_0^2$ (still of order $5$). Then 
+$z_1+z_1^{-1}=\tau^2-2=1-\tau-2=-1-\tau=t$, so $z_1$ satisfies 
+$z_1^2-tz_1+1=0$, again giving $\chi_p(\Delta)=+1$.
+Thus \(p\equiv1\pmod5\) implies \(\chi_p(\Delta)=+1\). Together
+with the implication proved above, this gives
+\[
+\chi_p(\Delta)=+1 \quad\Longleftrightarrow\quad p\equiv1\pmod5.
+\]
+Since \(\Delta\ne0\) and throughout this section
+\(p\equiv\pm1\pmod5\), the remaining case \(p\equiv-1\pmod5\)
+has \(\chi_p(\Delta)=-1\).
+\end{proof}
+
+\begin{lemma}[Sign determination]\label{lem:R3}
+With $r_-$ the nonresidue root and $r_+$ the residue root of 
+$x^2-x-1$,
+\[
+\chi_p(r_- - r_+)=
+\begin{cases}+1,& p\equiv 1\pmod 5,\\
+              -1,& p\equiv -1\pmod 5.\end{cases}
+\]
+\end{lemma}
+
+\begin{proof}
+Compute $s\phi=s(1+s)/2=(s+5)/2$. By $\Delta=-t-3$ and 
+$t=(s-1)/2$,
+\[
+\Delta=-\frac{s-1}{2}-3=-\frac{s+5}{2}=-s\phi.
+\]
+Taking characters (using $\chi_p(s)=+1$ and $\chi_p(-1)=-1$):
+\[
+\chi_p(\Delta)=-\chi_p(\phi).
+\]
+
+\emph{Case $p\equiv1\pmod5$.} By \Cref{lem:R2}, 
+$\chi_p(\Delta)=+1$, so $\chi_p(\phi)=-1$. Hence $r_-=\phi$, 
+$r_+=\psi$, and $r_- - r_+=\phi-\psi=s$, giving 
+$\chi_p(r_- - r_+)=+1$.
+
+\emph{Case $p\equiv-1\pmod5$.} By \Cref{lem:R2}, 
+$\chi_p(\Delta)=-1$, so $\chi_p(\phi)=+1$. Hence $r_+=\phi$, 
+$r_-=\psi$, and $r_- - r_+=\psi-\phi=-s$, giving 
+$\chi_p(r_- - r_+)=\chi_p(-1)\chi_p(s)=-1$.
+\end{proof}
+
+\section{Proof of the main theorem}\label{sec:main-proof}
+
+\begin{proof}[Proof of \Cref{thm:main}]
+By \Cref{lem:G}, $x^2-x-1$ splits over $\F_p$ and 
+$p\equiv3\pmod4$. Splitting is equivalent to $\chi_p(5)=+1$, 
+hence $p\equiv\pm1\pmod5$. Combining gives 
+$p\equiv11\pmod{20}$ or $p\equiv19\pmod{20}$.
+
+By \Cref{prop:structural}, $S(p)=\chi_p(r_- - r_+)$. By 
+\Cref{lem:R3}, this is $+1$ when $p\equiv1\pmod5$ 
+(i.e.\ $p\equiv11\pmod{20}$) and $-1$ when $p\equiv-1\pmod5$ 
+(i.e.\ $p\equiv19\pmod{20}$).
+\end{proof}
+
+\section{Computational verification}\label{sec:computations}
+
+\Cref{thm:main} was verified for all primes $p\le2\times10^6$ 
+satisfying $\alpha(p)=p-1$.
+
+\begin{table}[ht]\centering
+\caption{Verification of \Cref{thm:main} for all primes 
+  \(p\le 2\times10^6\) with \(\alpha(p)=p-1\).}\label{tab:verification}
+\begin{tabular}{ccccc}\toprule
+$p\bmod 20$ & predicted $S(p)$ & count & matches & status\\
+\midrule
+$11$ & $+1$ & $11{,}755$ & $11{,}755$ & PASS\\
+$19$ & $-1$ & $14{,}652$ & $14{,}652$ & PASS\\
+\midrule
+total &     & $26{,}407$ & $26{,}407$ & PASS\\
+\bottomrule
+\end{tabular}\end{table}
+
+The verification is non-circular: $\alpha(p)$ is computed by 
+iterating the Fibonacci recurrence modulo $p$, and $S(p)$ is 
+computed by directly summing $\chi_p(F_n)$ for $1\le n\le p-1$, 
+without using the closed formula of \Cref{thm:main}. Consistency 
+checks independently verified: (i)~the quadratic characters of 
+both roots of $x^2-x-1$ in $\F_p$ against \Cref{lem:G}; 
+(ii)~the multiplicative orders of $-r_-^2$ and $r_-$ against 
+\Cref{lem:rank-order,lem:G}; and (iii)~the sign of 
+$\chi_p(r_- - r_+)$ against the discriminant criterion of 
+\Cref{lem:R3}. These checks verify not only the numerical value 
+of $S(p)$ but also the structural mechanism used in the proof.
+Among the \(148{,}933\) primes \(p\le 2\times10^6\), exactly
+\(26{,}407\) satisfy \(\alpha(p)=p-1\). Restricting to the
+\(74{,}461\) split primes \((p\equiv\pm1\pmod5)\), the full-rank
+density is \(26{,}407/74{,}461\approx35.46\%\). Source code,
+datasets, and verification logs are deposited in the
+reproducibility archive~\cite{Ghandali2026}.
+
+\section{Concluding remarks}\label{sec:conclusion}
+
+We have established an explicit evaluation of the Fibonacci 
+character sum $S(p)$ in the full-rank regime $\alpha(p)=p-1$, 
+showing that $S(p)=\pm1$ with sign determined by $p\bmod20$. 
+The split-case identity in \Cref{lem:rank-order} identifies 
+$\alpha(p)=p-1$ with the primitivity of $-r^2\in\F_p^\times$, 
+placing the result naturally in the Artin-type family.
+
+\subsection*{A density question}
+
+Among primes $p\le2\times10^6$ in the split classes 
+$p\equiv\pm1\pmod5$, approximately $35.46\%$ satisfy 
+$\alpha(p)=p-1$. \Cref{thm:main} restricts these primes to 
+the two classes $p\equiv11,19\pmod{20}$, out of the four 
+equidistributed split classes $p\equiv1,9,11,19\pmod{20}$. 
+This motivates the following.
+
+\begin{conjecture}\label{conj:density}
+There exists a constant $C_F$ with $0<C_F\le 1/2$ such that
+\[
+\#\{p\le x:\alpha(p)=p-1\}\sim 
+C_F\cdot\#\{p\le x:p\equiv\pm 1\pmod 5\},\quad x\to\infty.
+\]
+Equivalently, the natural density of full-rank primes among 
+all primes equals $C_F/2$.
+\end{conjecture}
+
+The upper bound \(C_F\le 1/2\) is forced by \Cref{thm:main}:
+full-rank primes can occur only in the residue classes
+\(11\) and \(19\pmod{20}\), among the four split residue classes
+\(1,9,11,19\pmod{20}\). By the split-case identity in
+\Cref{lem:rank-order}, \Cref{conj:density} is a primitive-root
+statement for the reduction of the algebraic unit \(-\phi^2\)
+(where \(\phi=(1+\sqrt5)/2\)) at primes split in
+\(\mathbb{Q}(\sqrt5)\). A Hooley-type analysis in this conditional
+setting, under suitable GRH-type hypotheses \cite{Hooley1967,Moree2012},
+may lead to an explicit Euler-product candidate for \(C_F\).
+Establishing such a conditional formula lies beyond the scope of
+this paper.
+
+\subsection*{Further directions}
+
+The methods apply directly to Lucas-type sums via 
+$L_n=r_-^n+r_+^n$. The analysis of $S(p)$ in non-extremal 
+regimes and higher-order character sums are left to future work.
+
+\appendix
+
+\section{Illustrative examples}\label{app:examples}
+
+For $p=11$: $\sqrt5\equiv4\pmod{11}$; roots $r_-=8$, $r_+=4$; 
+$r_- - r_+=4=2^2$; $S(11)=+1$. \quad
+For $p=19$: roots $r_-=15$, $r_+=5$; $r_- - r_+=10$ (nonresidue); 
+$S(19)=-1$. \quad
+For $p=31$: $\alpha(31)=30$; roots $r_-=13$, $r_+=19$; 
+$r_- - r_+\equiv25=5^2\pmod{31}$; $S(31)=+1$. \quad
+Also: $\alpha(59)=58$, $S(59)=-1$; $\alpha(79)=78$, $S(79)=-1$. 
+All consistent with \Cref{thm:main}.
+
+\section{Reproducibility archive}\label{app:software}
+
+Source code, datasets, and verification logs are deposited 
+at~\cite{Ghandali2026}.
+
+\bibliography{references}
+
+\end{document}

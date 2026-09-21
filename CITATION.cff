@@ -1,33 +1,19 @@
 cff-version: 1.2.0
-message: "If you use this preprint, please cite it using the metadata below."
-type: article
-title: "An Explicit Evaluation of a Fibonacci Character Sum for Primes with Full Rank of Apparition"
+message: "If you use FibChar v1.0.1 or its reproducibility materials, please cite it as follows."
+
+type: software
+title: "FibChar"
+version: "v1.0.1"
+date-released: "2026-07-18"
+
 authors:
   - family-names: "Ghandali"
     given-names: "Majid"
-    affiliation: "Independent Researcher, Tehran, Iran"
+    affiliation: "Independent Researcher"
     orcid: "https://orcid.org/0009-0001-1097-1770"
-version: "v1.0.0"
-date-released: 2026-09-16
-publisher: "Zenodo"
-doi: "10.5281/zenodo.22803009"
-url: "https://doi.org/10.5281/zenodo.22803009"
-license: "CC-BY-4.0"
-keywords:
-  - "Fibonacci numbers"
-  - "rank of apparition"
-  - "quadratic character sums"
-  - "Legendre symbol"
-  - "primitive roots"
-  - "finite fields"
-  - "Pisano period"
-  - "Lucas sequences"
-abstract: >
-  This preprint evaluates the quadratic character sum
-  S(p)=sum_{n=1}^{p-1} chi_p(F_n) under the full-rank hypothesis
-  alpha(p)=p-1, where alpha(p) is the rank of apparition of p in the
-  Fibonacci sequence. It proves that p is congruent to 11 or 19 modulo 20
-  and that the sum is respectively +1 or -1. The proof derives a
-  primitive-root parametrization from the full-rank condition, reduces the
-  sum to a quadratic character of a difference of roots of x^2-x-1, and
-  determines the remaining sign by a cyclotomic discriminant argument.
+
+doi: "10.5281/zenodo.21431565"
+url: "https://doi.org/10.5281/zenodo.21431565"
+repository-code: "https://github.com/Majid-Ghandali/fibonacci-character-sum-full-rank"
+
+license: "MIT"
