@@ -1,0 +1,52 @@
+This is BibTeX, Version 0.99e
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+Reallocating 'name_of_file' (item size: 1) to 15 items.
+The style file: elsarticle-num.bst
+Reallocating 'name_of_file' (item size: 1) to 11 items.
+Database file #1: references.bib
+Warning--I didn't find a database entry for "Renault1996"
+Warning--I didn't find a database entry for "BragmanRowland2025"
+Warning--I didn't find a database entry for "HajduTijdeman2025"
+You've used 16 entries,
+            2952 wiz_defined-function locations,
+            811 strings with 7879 characters,
+and the built_in function-call counts, 4650 in all, are:
+= -- 476
+> -- 89
+< -- 2
++ -- 40
+- -- 24
+* -- 354
+:= -- 605
+add.period$ -- 28
+call.type$ -- 16
+change.case$ -- 15
+chr.to.int$ -- 3
+cite$ -- 16
+duplicate$ -- 124
+empty$ -- 564
+format.name$ -- 30
+if$ -- 1221
+int.to.chr$ -- 0
+int.to.str$ -- 16
+missing$ -- 20
+newline$ -- 69
+num.names$ -- 16
+pop$ -- 98
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 311
+stack$ -- 0
+substring$ -- 256
+swap$ -- 39
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 37
+width$ -- 18
+write$ -- 161
+(There were 3 warnings)

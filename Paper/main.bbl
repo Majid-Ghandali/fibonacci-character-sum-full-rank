@@ -1,0 +1,102 @@
+\begin{thebibliography}{10}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\href#1#2{#2} \def\path#1{#1}\fi
+
+\bibitem{Lucas1878}
+{\'E}.~Lucas, Th{\'e}orie des fonctions num{\'e}riques simplement
+  p{\'e}riodiques, American Journal of Mathematics 1~(2) (1878) 184--240.
+\newblock \href {https://doi.org/10.2307/2369308} {\path{doi:10.2307/2369308}}.
+
+\bibitem{Williams1982}
+H.~C. Williams, A note on the {F}ibonacci quotient $f_{p-\varepsilon}/p$,
+  Canadian Mathematical Bulletin 25~(3) (1982) 366--370.
+\newblock \href {https://doi.org/10.4153/CMB-1982-053-0}
+  {\path{doi:10.4153/CMB-1982-053-0}}.
+
+\bibitem{Sun1992}
+Z.-H. Sun, Z.-W. Sun, {F}ibonacci numbers and {F}ermat's last theorem, Acta
+  Arithmetica 60~(4) (1992) 371--388.
+\newblock \href {https://doi.org/10.4064/aa-60-4-371-388}
+  {\path{doi:10.4064/aa-60-4-371-388}}.
+
+\bibitem{Sun2003}
+Z.-W. Sun, Congruences for {F}ibonacci numbers, Acta Arithmetica 109~(4) (2003)
+  325--344.
+\newblock \href {https://doi.org/10.4064/aa-109-4-325-344}
+  {\path{doi:10.4064/aa-109-4-325-344}}.
+
+\bibitem{Wall1960}
+D.~D. Wall, {F}ibonacci series modulo $m$, The American Mathematical Monthly
+  67~(6) (1960) 525--532.
+\newblock \href {https://doi.org/10.1080/00029890.1960.11989541}
+  {\path{doi:10.1080/00029890.1960.11989541}}.
+
+\bibitem{Vajda1989}
+S.~Vajda, {F}ibonacci and {L}ucas Numbers, and the Golden Section: Theory and
+  Applications, Ellis Horwood Ltd., Chichester, 1989.
+
+\bibitem{Koshy2001}
+T.~Koshy, {F}ibonacci and {L}ucas Numbers with Applications,
+  Wiley-Interscience, New York, 2001.
+\newblock \href {https://doi.org/10.1002/9781118033067}
+  {\path{doi:10.1002/9781118033067}}.
+
+\bibitem{Lemmermeyer2000}
+F.~Lemmermeyer, Reciprocity Laws: From {E}uler to {E}isenstein, Springer
+  Monographs in Mathematics, Springer-Verlag, Berlin, 2000.
+
+\bibitem{IrelandRosen1990}
+K.~Ireland, M.~Rosen, A Classical Introduction to Modern Number Theory, 2nd
+  Edition, Vol.~84 of Graduate Texts in Mathematics, Springer-Verlag, New York,
+  1990.
+
+\bibitem{BallotElia2007}
+C.~Ballot, M.~Elia, Rank and period of primes in the {F}ibonacci sequence. {A}
+  trichotomy, The Fibonacci Quarterly 45~(1) (2007) 56--63.
+\newblock \href {https://doi.org/10.1080/00150517.2007.12428243}
+  {\path{doi:10.1080/00150517.2007.12428243}}.
+
+\bibitem{SomerKrizek2014}
+L.~Somer, M.~K{\v{r}}{\'\i}{\v{z}}ek, On primes in {L}ucas sequences, The
+  Fibonacci Quarterly 52~(4) (2014) 289--308.
+\newblock \href {https://doi.org/10.1080/00150517.2015.12428283}
+  {\path{doi:10.1080/00150517.2015.12428283}}.
+
+\bibitem{FiebigMbirikaSpilker2025}
+M.~Fiebig, a.~Mbirika, J.~Spilker, Period patterns, entry points, and orders in
+  the {L}ucas sequences: theory and applications, The Fibonacci Quarterly
+  63~(2) (2025) 345--376.
+\newblock \href {https://doi.org/10.1080/00150517.2024.2442591}
+  {\path{doi:10.1080/00150517.2024.2442591}}.
+
+\bibitem{BerndtEvansWilliams1998}
+B.~C. Berndt, R.~J. Evans, K.~S. Williams, {G}auss and {J}acobi Sums, Canadian
+  Mathematical Society Series of Monographs and Advanced Books,
+  Wiley-Interscience, New York, 1998.
+
+\bibitem{Moree2012}
+P.~Moree, {Artin}'s primitive root conjecture---a survey, Integers 12~(A13)
+  (2012) 1305--1416, with contributions by A. C. Cojocaru, W. Gajda and H.
+  Graves.
+\newblock \href {https://doi.org/10.1515/integers-2012-0043}
+  {\path{doi:10.1515/integers-2012-0043}}.
+
+\bibitem{Hooley1967}
+C.~Hooley, On {A}rtin's conjecture, Journal f{\"u}r die reine und angewandte
+  Mathematik 225 (1967) 209--220.
+\newblock \href {https://doi.org/10.1515/crll.1967.225.209}
+  {\path{doi:10.1515/crll.1967.225.209}}.
+
+\bibitem{Ghandali2026}
+M.~Ghandali, \href{https://doi.org/10.5281/zenodo.21431565}{{FibChar v1.0.1}:
+  Reproducibility materials for ``an explicit evaluation of a {F}ibonacci
+  character sum for primes with full rank of apparition''}, Zenodo,
+  reproducibility archive (2026).
+\newblock \href {https://doi.org/10.5281/zenodo.21431565}
+  {\path{doi:10.5281/zenodo.21431565}}.
+\newline\urlprefix\url{https://doi.org/10.5281/zenodo.21431565}
+
+\end{thebibliography}
