@@ -1,9 +1,9 @@
 cff-version: 1.2.0
-message: "If you use Fibchar v1-0-1 or its reproducibility materials, please cite it as follows."
+message: "If you use FibChar v1.0.1 or its reproducibility materials, please cite it as follows."
 
 type: software
-title: "Fibchar"
-version: "v1-0-1"
+title: "FibChar"
+version: "v1.0.1"
 date-released: "2026-07-18"
 
 authors:

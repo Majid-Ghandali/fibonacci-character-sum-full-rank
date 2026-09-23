@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use this manuscript, please cite it as follows."
+type: article
+title: "An Explicit Evaluation of a Fibonacci Character Sum for Primes with Full Rank of Apparition"
+version: "v1.0.0"
+date-released: "2026-09-16"
+authors:
+  - family-names: "Ghandali"
+    given-names: "Majid"
+    affiliation: "Independent Researcher, Tehran, Iran"
+    orcid: "https://orcid.org/0009-0001-1097-1770"
+doi: "10.5281/zenodo.22803009"
+url: "https://doi.org/10.5281/zenodo.22803009"
+license: "CC-BY-4.0"
