@@ -69,9 +69,7 @@ $$
 and
 
 $$
-S(p) = \sum_{n=1}^{p-1} \chi_p(F_n)
-=
-\begin{cases}
+S(p) = \sum_{n=1}^{p-1} \chi_p(F_n)=\begin{cases}
 +1, & p \equiv 11 \pmod{20}, \\
 -1, & p \equiv 19 \pmod{20}.
 \end{cases}
