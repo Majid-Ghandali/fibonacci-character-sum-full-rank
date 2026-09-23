@@ -1,228 +1,37 @@
-# An Explicit Evaluation of a Fibonacci Character Sum for Primes with Full Rank of Apparition
+# FibChar: Fibonacci Character Sum at Full Rank
 
-[![GitHub Release](https://img.shields.io/github/v/release/Majid-Ghandali/fibonacci-character-sum-full-rank?display_name=tag\&sort=semver)](https://github.com/Majid-Ghandali/fibonacci-character-sum-full-rank/releases)
 [![Manuscript DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22803009.svg)](https://doi.org/10.5281/zenodo.22803009)
 [![Code Archive DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21431565.svg)](https://doi.org/10.5281/zenodo.21431565)
-[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightRED.svg)](LICENSE)
-[![Python](https://img.shields.io/badge/Python-3.12.7%2B-YELLOW.svg)](https://www.python.org/)
+[![License: MIT (code)](https://img.shields.io/badge/License-MIT%20(code)-yellow.svg)](LICENSE)
+[![License: CC BY 4.0 (paper)](https://img.shields.io/badge/License-CC%20BY%204.0%20(paper)-lightgrey.svg)](Paper/LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.12.7-blue.svg)](https://www.python.org/)
 
-> **Research compendium** — manuscript source, verification software, computational results, and reproducibility records
-> **Majid Ghandali** · Independent Researcher, Tehran, Iran · 2026
+**Majid Ghandali** · Independent Researcher, Tehran, Iran · 2026<br>
+ORCID: [0009-0001-1097-1770](https://orcid.org/0009-0001-1097-1770)
 
-This repository contains the source of the mathematical manuscript together with the computational software, finite-range verification data, release records, and reproducibility materials associated with:
+Reproducibility materials for the preprint:
 
-> *An Explicit Evaluation of a Fibonacci Character Sum for Primes with Full Rank of Apparition.*
+> *An Explicit Evaluation of a Fibonacci Character Sum for Primes with Full Rank of Apparition*
 
-The manuscript is archived as preprint **v1_0_0** on Zenodo under DOI `10.5281/zenodo.22803009`. The corresponding computational reproducibility release **FibChar v1_0_1** is archived separately under DOI `10.5281/zenodo.21431565`.
-
-> **Proof versus computation.**
-> The mathematical theorem is proved in the manuscript. The computations in this repository provide finite-range verification of the stated identities, structural conditions, and reported numerical results; they are not a substitute for the proof.
+> **Proof versus computation.** The mathematical theorem is proved in the manuscript. Computations in this repository provide finite-range verification of the stated identities and reported numerical results; they are not a substitute for the proof.
 
 ---
 
-## Status and release identity
+## Citation and DOI records
 
-| Item                    | Value                                                                            |
-| :---------------------- | :------------------------------------------------------------------------------- |
-| Manuscript              | **v1_0_0** · 2026-09-16                                                          |
-| Manuscript DOI          | `10.5281/zenodo.22803009`                                                        |
-| Computational release   | **FibChar v1_0_1** · 2026-07-17                                                  |
-| Code archive DOI        | `10.5281/zenodo.21431565`                                                        |
-| Verification bound      | Every prime $p\le 2{,}000{,}000$ in the reported run                           |
-| Current program         | [`code/Fibchar_v1_0_1.py`](code/Fibchar_v1_0_1.py)                               |
-| Headline verification   | [`results/corollary_B1_verification.csv`](results/corollary_B1_verification.csv) |
-| Full committed database | [`results/fib_char_db_N2000000.csv`](results/fib_char_db_N2000000.csv)           |
-| Release records         | [`results/release-v1_0_1/`](results/release-v1_0_1/)                             |
+The manuscript and the computational release are separate research objects:
 
-### Citation roles
+| Object | Use | DOI |
+| --- | --- | --- |
+| Manuscript preprint | Mathematical result and proof | [10.5281/zenodo.22803009](https://doi.org/10.5281/zenodo.22803009) |
+| FibChar v1.0.1 reproducibility archive | Software, data, and reproducibility reruns | [10.5281/zenodo.21431565](https://doi.org/10.5281/zenodo.21431565) |
 
-* **Mathematics, theorem, and proof:** cite the manuscript DOI.
-* **Software, computational data, and reproducibility release:** cite the FibChar v1_0_1 DOI.
-* **Exact release contents:** use the versioned release archive together with its manifest and checksums.
-
-The manuscript and computational materials are maintained as separate citable records.
-
----
-
-## Overview
-
-The principal object is the quadratic-character sum
-
-$$
-S(p)=\sum_{n=1}^{p-1}\chi_p(F_n),
-$$
-
-where $F_n$ is the Fibonacci sequence and $\chi_p$ denotes the quadratic character modulo an odd prime $p$, with
-
-$$
-\chi_p(0)=0.
-$$
-
-The paper studies the full-rank regime
-
-$$
-\alpha(p)=p-1,
-$$
-
-where $\alpha(p)$ is the rank of apparition of $p$ in the Fibonacci sequence.
-
-Under this hypothesis, the paper derives an explicit evaluation of the character sum $S(p)$.
-
----
-
-## Main theorem
-
-Let $p\ge7$ be prime and suppose that
-
-$$
-\alpha(p)=p-1.
-$$
-
-Then
-
-$$
-p\equiv11\pmod{20}
-\quad\text{or}\quad
-p\equiv19\pmod{20},
-$$
-
-and
-
-$$
-S(p)=\sum_{n=1}^{p-1}\chi_p(F_n)=\begin{cases}
-+1,&p\equiv11\pmod{20},\\
--1,&p\equiv19\pmod{20}.
-\end{cases}
-$$
-
-In the full-rank setting, if $r_-$ denotes the quadratic-nonresidue root and $r_+$ the quadratic-residue root of
-
-$$
-x^2-x-1
-$$
-
-in $\mathbb F_p$, the proof obtains the structural identity
-
-$$
-S(p)=\chi_p(r_--r_+).
-$$
-
-The full-rank hypothesis yields the primitive-root structure required for this reduction, and the remaining sign is determined through the cyclotomic/discriminant argument developed in the manuscript.
-
-For the complete hypotheses, definitions, lemmas, and proof, see [`Paper/main.tex`](Paper/main.tex).
-
----
-
-## Scientific mechanism
-
-The proof can be summarized schematically as
-
-```text
-Full-rank condition
-        α(p) = p − 1
-                │
-                ▼
-Congruence constraints
- p ≡ 3 (mod 4),  p ≡ ±1 (mod 5)
-                │
-                ▼
-Primitive-root structure
-nonresidue root r_- of x²−x−1
-                │
-                ▼
-Structural reduction
- S(p) = χ_p(r_- − r_+)
-                │
-                ▼
-Cyclotomic / discriminant criterion
-                │
-                ▼
-Explicit evaluation
- S(p) = +1 or −1 according to p (mod 20)
-```
-
-The computational suite checks the corresponding arithmetic conditions and identities over the finite verification range.
-
----
-
-## Verification scope
-
-The reported full-range computation covers every prime
-
-$$
-p\le2{,}000{,}000.
-$$
-
-The reported run processed:
-
-| Quantity                                     |   Value |
-| :------------------------------------------- | ------: |
-| Primes tested                                | 148,933 |
-| Full-rank primes $\alpha(p)=p-1$           |  26,407 |
-| Full-rank primes with $p\equiv11\pmod{20}$ |  11,755 |
-| Full-rank primes with $p\equiv19\pmod{20}$ |  14,652 |
-| Main-theorem mismatches                      |   **0** |
-
-The committed headline result is:
-
-[`results/corollary_B1_verification.csv`](results/corollary_B1_verification.csv)
-
-The filename is retained for release compatibility. The manuscript and current computational documentation identify the corresponding mathematical statement as the **Main Theorem**.
-
-The complete committed database is:
-
-[`results/fib_char_db_N2000000.csv`](results/fib_char_db_N2000000.csv)
-
-These are finite computational results and should be interpreted as reproducibility and consistency evidence, not as numerical proofs.
-
----
-
-## Reproducibility release v1_0_1
-
-The current computational release is:
-
-> **FibChar v1_0_1 — Reproducibility Release**
-
-Archived under:
-
-`10.5281/zenodo.21431565`
-
-The release-specific materials are stored in:
-
-```text
-results/release-v1_0_1/
-```
-
-The release record contains, among other materials:
-
-```text
-results/release-v1_0_1/
-├── MANIFEST.md
-├── SHA256SUMS-v1_0_1.txt
-├── self-test-v1_0_1.log
-├── smoke-N10000.log
-├── cli-help-v1_0_1.txt
-├── environment-v1_0_1.txt
-├── version-v1_0_1.txt
-├── fib_char_N10000_db.csv
-├── fib_char_N10000_empirical_claims.csv
-├── fib_char_N10000_main_theorem.csv
-├── fib_char_N10000_report.txt
-├── fib_char_N10000_report.xlsx
-├── fib_char_N10000_root_order_sign_checks.csv
-├── fib_char_N10000_summary.json
-└── latex_tables/
-```
-
-The manifest and checksum file provide a fixed record of the release contents.
-
-See [`docs/reproducibility.md`](docs/reproducibility.md) for the detailed reproduction procedure.
+- Manuscript citation metadata: [`Paper/CITATION.cff`](Paper/CITATION.cff)
+- Software citation metadata: [`CITATION.cff`](CITATION.cff)
 
 ---
 
 ## Quick start
-
-Clone the repository and create a virtual environment:
 
 ```bash
 git clone https://github.com/Majid-Ghandali/fibonacci-character-sum-full-rank.git
@@ -234,421 +43,294 @@ source .venv/bin/activate          # macOS/Linux
 
 python -m pip install --upgrade pip
 python -m pip install -r Requirements.txt
+
+# Deterministic self-test (Appendix A examples)
+python code/Fibchar_v1-0-1.py --no-gui --self-test
 ```
 
-Run the deterministic self-test:
-
-```bash
-python code/Fibchar_v1_0_1.py --no-gui --self-test
-```
-
-The self-test uses the five fixed Appendix-A examples
+A successful self-test ends with a line of the form:
 
 ```text
-11, 19, 31, 59, 79
+[OK] Self-test PASSED ...
 ```
-
-and checks four invariants for each example:
-
-1. the computed character sum agrees with the expected Appendix-A value;
-2. $\alpha(p)=p-1$;
-3. the arithmetic signature is `cm_only`;
-4. $T_\alpha(p)=S_p$ in the full-rank case.
-
-A successful run ends with:
-
-```text
-[OK] Self-test PASSED -- all 5 examples x 4 invariants verified.
-```
-
-A nonzero process exit status indicates failure.
 
 ---
 
-## Full verification
+## Main theorem (statement only)
 
-To reproduce the sequential verification through $p=2{,}000{,}000$:
+Let $p \ge 7$ be prime and suppose $\alpha(p) = p-1$, where $\alpha(p)$ is the rank of apparition of $p$ in the Fibonacci sequence. Then
 
-```bash
-python code/Fibchar_v1_0_1.py \
-  --no-gui \
-  --N 2000000 \
-  --verify-b1 \
-  --out-dir results
-```
+$$
+p \equiv 11 \pmod{20}
+\quad\text{or}\quad
+p \equiv 19 \pmod{20},
+$$
 
-To resume an interrupted sequential run:
+and
 
-```bash
-python code/Fibchar_v1_0_1.py \
-  --no-gui \
-  --N 2000000 \
-  --verify-b1 \
-  --resume \
-  --out-dir results
-```
+$$
+S(p) = \sum_{n=1}^{p-1} \chi_p(F_n)
+=
+\begin{cases}
++1, & p \equiv 11 \pmod{20}, \\
+-1, & p \equiv 19 \pmod{20}.
+\end{cases}
+$$
 
-For a multi-process run:
+Here $\chi_p$ is the quadratic character modulo $p$, with the convention $\chi_p(0) = 0$.
 
-```bash
-python code/Fibchar_v1_0_1.py \
-  --no-gui \
-  --N 2000000 \
-  --verify-b1 \
-  --parallel \
-  --workers 8 \
-  --chunk-size 5000 \
-  --out-dir results
-```
+For the full hypotheses, lemmas, and proof, see [`Paper/main.tex`](Paper/main.tex).
 
-Parallel mode does not use checkpoint/resume.
+---
 
-On Windows PowerShell:
+## Verification headline (committed evidence)
 
-```powershell
-python code\Fibchar_v1_0_1.py --no-gui --self-test
+Reported full-range run through $p \le 2{,}000{,}000$:
 
-python code\Fibchar_v1_0_1.py `
-  --no-gui `
-  --N 2000000 `
-  --verify-b1 `
-  --out-dir results
-```
+| Quantity | Value |
+| --- | ---: |
+| Primes tested | 148,933 |
+| Full-rank primes $\alpha(p) = p-1$ | 26,407 |
+| Full-rank primes with $p \equiv 11 \pmod{20}$ | 11,755 |
+| Full-rank primes with $p \equiv 19 \pmod{20}$ | 14,652 |
+| Main-theorem mismatches | **0** |
 
-For the complete command-line interface:
+- Headline CSV: [`results/corollary_B1_verification.csv`](results/corollary_B1_verification.csv)
+- Full database: [`results/fib_char_db_N2000000.csv`](results/fib_char_db_N2000000.csv)
 
-```bash
-python code/Fibchar_v1_0_1.py --help
-```
-
-The archived CLI record is retained at:
-
-```text
-results/release-v1_0_1/cli-help-v1_0_1.txt
-```
+These are finite computational results offered as consistency evidence, not as numerical proofs.
 
 ---
 
 ## What the program computes
 
-The verification suite distinguishes the following quantities.
+| Symbol | Definition |
+| --- | --- |
+| $S(p)$ | $\sum_{n=1}^{p-1} \chi_p(F_n)$ (manuscript sum) |
+| $T_\alpha(p)$ | $\sum_{n=1}^{\alpha(p)} \chi_p(F_n)$ (rank-truncated sum) |
+| $S_p$ | $\sum_{n=1}^{\pi(p)} \chi_p(F_n)$ (full Pisano-period sum in the code) |
 
-The manuscript sum is
+In the full-rank regime, $\alpha(p) = \pi(p) = p-1$, so the quantities relevant to the main theorem coincide. Outside that regime they need not agree; the implementation keeps them distinct.
 
-$$
-S(p)=\sum_{n=1}^{p-1}\chi_p(F_n).
-$$
+For each prime, the suite can also record the rank of apparition, the Pisano period, $v_2(\pi(p))$, the arithmetic signature determined by $\chi_p(-1)$ and $\chi_p(5)$, character counts, and main-theorem checks. Auxiliary empirical diagnostics are not additional theorems unless they are stated and proved in the manuscript.
 
-The rank-truncated sum is
+### Character-evaluation backends
 
-$$
-T_\alpha(p)=\sum_{n=1}^{\alpha(p)}\chi_p(F_n),
-$$
+| Backend | Method | Memory |
+| --- | --- | --- |
+| A | Quadratic-residue lookup table | $O(p)$ |
+| B | Bitwise Jacobi evaluation | $O(1)$ |
+| C | Euler-criterion modular exponentiation | $O(1)$ |
 
-and the full Pisano-period sum computed by the program is
-
-$$
-S_p=\sum_{n=1}^{\pi(p)}\chi_p(F_n).
-$$
-
-In the full-rank regime,
-
-$$
-\alpha(p)=p-1
-\quad\text{and}\quad
-\pi(p)=p-1,
-$$
-
-so the quantities relevant to the main theorem coincide.
-
-Outside the full-rank regime, these sums need not agree. The implementation therefore keeps them as distinct quantities rather than conflating them.
-
-For each prime in the computational range, the program can also compute:
-
-* the rank of apparition $\alpha(p)$;
-* the Pisano period $\pi(p)$;
-* $v_2(\pi(p))$;
-* the ratio $\pi(p)/\alpha(p)$;
-* the arithmetic signature determined by $\chi_p(-1)$ and $\chi_p(5)$;
-* the value $s=F_{\alpha(p)+1}\pmod p$;
-* $\chi_p(s)$;
-* positive, negative, and zero character counts;
-* the main-theorem verification conditions;
-* auxiliary empirical diagnostics.
-
-The auxiliary empirical observations are computational diagnostics and should not be interpreted as additional proved results unless explicitly incorporated and proved in the manuscript.
+The program dispatches among these backends according to configurable thresholds and uses Numba when available.
 
 ---
 
-## Computational backends
+## Full verification commands
 
-The v1_0_1 program provides three arithmetic backends for the Fibonacci walk:
+Sequential run through $p = 2{,}000{,}000$:
 
-| Backend | Character evaluation                   | Memory profile |
-| :------ | :------------------------------------- | :------------- |
-| A       | Quadratic-residue lookup table         | $O(p)$       |
-| B       | Bitwise Jacobi evaluation              | $O(1)$       |
-| C       | Euler-criterion modular exponentiation | $O(1)$       |
+```bash
+python code/Fibchar_v1-0-1.py \
+  --no-gui \
+  --N 2000000 \
+  --verify-b1 \
+  --out-dir results/reproduced-N2000000
+```
 
-The implementation dispatches between these backends according to configurable thresholds.
+Resume an interrupted sequential run:
 
-The program uses Numba when available and falls back to pure Python where supported.
+```bash
+python code/Fibchar_v1-0-1.py \
+  --no-gui \
+  --N 2000000 \
+  --verify-b1 \
+  --resume \
+  --out-dir results/reproduced-N2000000
+```
+
+Parallel run (no checkpoint or resume):
+
+```bash
+python code/Fibchar_v1-0-1.py \
+  --no-gui \
+  --N 2000000 \
+  --verify-b1 \
+  --parallel \
+  --out-dir results/reproduced-N2000000
+```
+
+In parallel mode, the recorded default worker policy is:
+
+```text
+max(1, (os.cpu_count() or 4) - 2)
+```
+
+Use `--workers` only when you deliberately want to override that automatic policy. Always use a **new** `--out-dir` for new runs. Do not write into `results/release-v1.0.1/`.
+
+Windows PowerShell:
+
+```powershell
+python code\Fibchar_v1-0-1.py --no-gui --self-test
+python code\Fibchar_v1-0-1.py --no-gui --N 2000000 --verify-b1 --out-dir results\reproduced-N2000000
+```
+
+Full CLI help:
+
+```bash
+python code/Fibchar_v1-0-1.py --help
+```
+
+---
+
+## Frozen reproducibility release (v1.0.1)
+
+Canonical software release: **FibChar v1.0.1**<br>
+Executable artifact: [`code/Fibchar_v1-0-1.py`](code/Fibchar_v1-0-1.py)
+
+Official historical evidence bundle:
+
+```text
+results/release-v1.0.1/
+```
+
+This directory is byte-preserved and checksum-recorded. Do **not** rename files in it, normalize its line endings, edit it, or overwrite it with a new rerun.
+
+Authoritative records:
+
+```text
+results/release-v1.0.1/MANIFEST.md
+results/release-v1.0.1/SHA256SUMS-v1.0.1.txt
+```
+
+Recorded historical smoke-test command (do not target the frozen directory again):
+
+```bash
+python code/Fibchar_v1-0-1.py --no-gui --N 10000 \
+  --out-dir results/release-v1.0.1/smoke-N10000 --verify-b1 --parallel
+```
+
+Fresh local smoke test:
+
+```bash
+python code/Fibchar_v1-0-1.py --no-gui --N 10000 \
+  --out-dir results/reproduced-smoke-N10000 --verify-b1 --parallel
+```
+
+Further detail: [`docs/reproducibility.md`](docs/reproducibility.md).
+
+### Integrity verification
+
+From the repository root (paths in the manifest are repository-relative):
+
+```bash
+sha256sum -c results/release-v1.0.1/SHA256SUMS-v1.0.1.txt
+```
+
+Windows (example for a single file):
+
+```powershell
+Get-FileHash code\Fibchar_v1-0-1.py -Algorithm SHA256
+# Compare the digest with the corresponding line in SHA256SUMS-v1.0.1.txt
+```
+
+The official executable digest is recorded in the checksum manifest. Do not clean or rewrite release evidence to satisfy cosmetic checks; integrity is defined by `SHA256SUMS-v1.0.1.txt`.
+
+---
+
+## Repository layout
+
+```text
+Paper/                              manuscript (CC BY 4.0): main.tex, references.bib, PDF, LICENSE, CITATION.cff
+code/Fibchar_v1-0-1.py              frozen executable for FibChar v1.0.1
+code/Fibchar_v1-0-0.py              previous program snapshot
+results/release-v1.0.1/             frozen, checksum-recorded release evidence
+results/corollary_B1_verification.csv
+results/fib_char_db_N2000000.csv
+docs/reproducibility.md             reproduction guide
+LICENSE                             MIT (code and computational materials)
+Paper/LICENSE                       CC BY 4.0 (manuscript)
+LICENSES.md                         scope of the two licenses
+CITATION.cff                        software / FibChar citation
+Requirements.txt
+```
 
 ---
 
 ## Requirements
 
-The supported Python baseline is:
+- Tested release environment: **Python 3.12.7**
+- Install the pinned dependencies in [`Requirements.txt`](Requirements.txt): NumPy 1.26.4, Pandas 2.1.4, Numba 0.62.1, OpenPyXL 3.1.5, and XlsxWriter 3.2.0
 
-```text
-Python 3.11+
-```
-
-The required packages are:
-
-```text
-numpy
-pandas
-```
-
-Optional components include:
-
-* `numba` for JIT acceleration;
-* `pyarrow` or `fastparquet` for Parquet checkpoint support;
-* `openpyxl` for XLSX output;
-* `tkinter` for the graphical interface.
-
-The exact tested environment for the archived release is recorded in:
-
-```text
-results/release-v1_0_1/environment-v1_0_1.txt
-```
-
-The package requirements are specified in:
-
-[`Requirements.txt`](Requirements.txt)
+Release environment record: `results/release-v1.0.1/environment-v1.0.1.txt`
 
 ---
 
-## Repository structure
+## Manuscript compilation
 
-```text
-.
-├── Paper/                              # Manuscript source
-│   ├── main.tex
-│   └── references.bib
-│
-├── code/                               # Versioned computational programs
-│   ├── Fibchar_v1-0-0.py
-│   └── Fibchar_v1_0_1.py              # Current release entry point
-│
-├── docs/                               # Reproducibility documentation
-│   └── reproducibility.md
-│
-├── results/                            # Computational artifacts
-│   ├── corollary_B1_verification.csv
-│   ├── fib_char_db_N2000000.csv
-│   └── release-v1_0_1/
-│
-├── CITATION.cff                        # Machine-readable citation metadata
-├── LICENSE                             # CC BY 4.0
-├── Requirements.txt
-├── README.md
-├── .gitignore
-└── .gitattributes
-```
-
-The release-specific evidence is concentrated under:
-
-```text
-results/release-v1_0_1/
-```
-
-The manuscript source remains under:
-
-```text
-Paper/
-```
-
-and the executable verification suite under:
-
-```text
-code/
-```
-
----
-
-## Reproducibility documentation
-
-The detailed computational protocol is documented in:
-
-[`docs/reproducibility.md`](docs/reproducibility.md)
-
-It records:
-
-* the tested software environment;
-* installation requirements;
-* the principal verification commands;
-* sequential checkpoint/resume behavior;
-* parallel execution;
-* generated output files;
-* the distinction between $S(p)$, $T_\alpha(p)$, and $S_p$;
-* character-evaluation backends;
-* the reported finite-range computational summary.
-
-The release archive additionally preserves logs, manifests, environment information, generated tables, and checksums.
-
----
-
-## Integrity verification
-
-The v1_0_1 release includes:
-
-```text
-results/release-v1_0_1/SHA256SUMS-v1_0_1.txt
-```
-
-and the corresponding release manifest:
-
-```text
-results/release-v1_0_1/MANIFEST.md
-```
-
-On Linux or macOS:
-
-```bash
-cd results/release-v1_0_1
-sha256sum -c SHA256SUMS-v1_0_1.txt
-```
-
-On Windows PowerShell, an individual file can be checked with:
-
-```powershell
-Get-FileHash .\results\release-v1_0_1\self-test-v1_0_1.log -Algorithm SHA256
-```
-
-The resulting digest can then be compared with the corresponding entry in `SHA256SUMS-v1_0_1.txt`.
-
----
-
-## Compile the manuscript
-
-The manuscript source is:
-
-[`Paper/main.tex`](Paper/main.tex)
-
-From the `Paper/` directory:
+Source: [`Paper/main.tex`](Paper/main.tex)
 
 ```bash
 cd Paper
-
 pdflatex -interaction=nonstopmode main.tex
 bibtex main
 pdflatex -interaction=nonstopmode main.tex
 pdflatex -interaction=nonstopmode main.tex
 ```
 
-The source uses the `elsarticle` document class and the packages declared by the manuscript source.
-
-A TeX Live or MiKTeX installation containing the required packages is needed for local compilation.
+A TeX Live or MiKTeX installation providing `elsarticle` and the packages declared in the source is required.
 
 ---
 
-## Zenodo archives
+## BibTeX
 
-### Manuscript
-
-**An Explicit Evaluation of a Fibonacci Character Sum for Primes with Full Rank of Apparition**
-
-* Version: **v1_0_0**
-* Resource type: **Preprint**
-* Published: **2026-09-16**
-* DOI: `10.5281/zenodo.22803009`
-
-### Computational reproducibility release
-
-**FibChar v1_0_1**
-
-* Release: **v1_0_1**
-* DOI: `10.5281/zenodo.21431565`
-
-The manuscript archive and computational archive serve different citation purposes:
-
-* cite the **manuscript DOI** for the mathematical result and proof;
-* cite the **FibChar DOI** for software, computational data, and reproducibility reruns.
-
----
-
-## Citation
-
-Please use [`CITATION.cff`](CITATION.cff) for machine-readable citation metadata.
-
-### Manuscript
+**Manuscript**
 
 ```bibtex
-@article{Ghandali2026,
+@misc{Ghandali2026Preprint,
   author       = {Ghandali, Majid},
-  title        = {An Explicit Evaluation of a Fibonacci Character Sum
-                  for Primes with Full Rank of Apparition},
+  title        = {An Explicit Evaluation of a {F}ibonacci Character Sum for
+                  Primes with Full Rank of Apparition},
   year         = {2026},
+  version      = {v1.0.0},
   publisher    = {Zenodo},
-  version      = {v1_0_0},
   doi          = {10.5281/zenodo.22803009},
   url          = {https://doi.org/10.5281/zenodo.22803009}
 }
 ```
 
-### Computational release
+**Software / reproducibility archive**
 
 ```bibtex
 @misc{Ghandali2026FibChar,
   author       = {Ghandali, Majid},
-  title        = {FibChar v1_0_1: Reproducibility Materials for
-                  An Explicit Evaluation of a Fibonacci Character Sum
-                  for Primes with Full Rank of Apparition},
+  title        = {{FibChar v1.0.1}: Reproducibility Materials},
   year         = {2026},
+  version      = {v1.0.1},
   publisher    = {Zenodo},
-  version      = {v1_0_1},
   doi          = {10.5281/zenodo.21431565},
   url          = {https://doi.org/10.5281/zenodo.21431565}
 }
 ```
 
-When citing the mathematical result, cite the manuscript. When citing software, computational data, or a reproducibility rerun, cite the corresponding FibChar release.
-
 ---
 
 ## License
 
-The repository's current root `LICENSE` file contains the **Creative Commons Attribution 4.0 International (CC BY 4.0)** license.
+This repository uses a deliberate dual-license structure:
 
-Accordingly, the repository currently identifies its licensed material under:
+| Content | Path | License |
+| --- | --- | --- |
+| Code, scripts, verification outputs, and computational artifacts | Root [`LICENSE`](LICENSE); `code/`, `results/`, … | **MIT** |
+| Manuscript text (LaTeX, bibliography, PDF) | [`Paper/`](Paper/); [`Paper/LICENSE`](Paper/LICENSE) | **CC BY 4.0** |
 
-> **CC BY 4.0 — Creative Commons Attribution 4.0 International**
-
-See [`LICENSE`](LICENSE) for the complete license text.
-
-The license notice identifies:
-
-```text
-Copyright (C) 2026 Majid Ghandali.
-```
-
-The manuscript's machine-readable citation metadata likewise identifies the manuscript license as:
-
-```yaml
-license: "CC-BY-4.0"
-```
-
-Any future separation of manuscript licensing from software licensing should be accompanied by explicit license files for the respective materials and should be reflected in this README only after those files have been added to the repository.
+Full scope statement: [`LICENSES.md`](LICENSES.md).
 
 ---
 
 ## Author
 
-**Majid Ghandali**
-Independent Researcher, Tehran, Iran
-
-Email: [majid.ghandali@gmail.com](mailto:majid.ghandali@gmail.com)
-
+**Majid Ghandali**<br>
+Independent Researcher, Tehran, Iran<br>
+Email: [majid.ghandali@gmail.com](mailto:majid.ghandali@gmail.com)<br>
 ORCID: [0009-0001-1097-1770](https://orcid.org/0009-0001-1097-1770)
