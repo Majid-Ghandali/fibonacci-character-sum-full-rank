@@ -163,13 +163,13 @@ $$S(p) = \chi_p(r_- - r_+) = \begin{cases} +1, & p \equiv 11 \pmod{20}, \\ -1, &
 
 ### 2. Conditional Natural-Density Asymptotics under GRH (Section 9)
 
-Let $K = \mathbb{Q}(\sqrt{5})$ and $\eta = -\phi^2 = -\frac{3 + \sqrt{5}}{2} \in T(\mathbb{Q})$ on the norm-one algebraic torus $T = \ker\bigl(\operatorname{Res}_{K/\mathbb{Q}}\mathbb{G}_m \xrightarrow{N} \mathbb{G}_m\bigr)$. Specializing Chen's theorem (2002) and supplying a self-contained three-range Hooley–Murty asymptotic sieve over the Kummer–cyclotomic composita $L_d = E_d\mathbb{Q}(\zeta_{20})$ (using Serre's refined effective Chebotarev estimate under GRH and an unconditional Brun–Titchmarsh and Fibonacci-norm tail bound $\lvert N_{K/\mathbb{Q}}(\eta^m - 1)\rvert = 5F_m^2$), the manuscript proves under GRH:
+Let $K = \mathbb{Q}(\sqrt{5})$ and $\eta = -\phi^2 = -\frac{3 + \sqrt{5}}{2} \in T(\mathbb{Q})$ on the norm-one algebraic torus $T = \ker\bigl(\mathrm{Res}_{K/\mathbb{Q}}\mathbb{G}_m \xrightarrow{N} \mathbb{G}_m\bigr)$. Specializing Chen's theorem (2002) and supplying a self-contained three-range Hooley–Murty asymptotic sieve over the Kummer–cyclotomic composita $L_d = E_d\mathbb{Q}(\zeta_{20})$ (using Serre's refined effective Chebotarev estimate under GRH and an unconditional Brun–Titchmarsh and Fibonacci-norm tail bound $\lvert N_{K/\mathbb{Q}}(\eta^m - 1)\rvert = 5F_m^2$), the manuscript proves under GRH:
 
-$$\operatorname{den}(\mathcal{F}^+) = \frac{9A}{19} \approx 0.177137, \qquad C_F = \frac{\operatorname{den}(\mathcal{F}^+)}{\operatorname{den}\{p : \chi_p(5) = 1\}} = \frac{18A}{19} \approx 0.354274,$$
+$$\mathrm{den}(\mathcal{F}^+) = \frac{9A}{19} \approx 0.177137, \qquad C_F = \frac{\mathrm{den}(\mathcal{F}^+)}{\mathrm{den}\{p : \chi_p(5) = 1\}} = \frac{18A}{19} \approx 0.354274,$$
 
 $$\delta_{11} = \frac{4A}{19} \approx 0.078728 \quad (S(p) = +1), \qquad \delta_{19} = \frac{5A}{19} \approx 0.098409 \quad (S(p) = -1),$$
 
-$$\operatorname{den}(\mathcal{F}^-) = \frac{10A}{19} \approx 0.196818 \quad (\text{inert maximal-rank }\alpha(p) = p + 1,\ \delta_3 = \delta_7 = \frac{5A}{19}),$$
+$$\mathrm{den}(\mathcal{F}^-) = \frac{10A}{19} \approx 0.196818 \quad (\text{inert maximal-rank }\alpha(p) = p + 1,\ \delta_3 = \delta_7 = \frac{5A}{19}),$$
 
 where $A = \prod_q \bigl(1 - \frac{1}{q(q-1)}\bigr) \approx 0.3739558136$ is Artin's constant.
 
@@ -209,9 +209,9 @@ The verification suite (`Fibchar_v1-0-1.py`) independently tests each intermedia
 
 | Manuscript result | Ambient object | Tested identity / condition |
 |:--|:--|:--|
-| Lemma 3.1 | $\mathbb{F}_p^\times$ (multiplicative group) | Rank–order identity $\operatorname{ord}_{\mathbb{F}_p^\times}(-r_-^2) = \alpha(p)$ |
+| Lemma 3.1 | $\mathbb{F}_p^\times$ (multiplicative group) | Rank–order identity $\mathrm{ord}_{\mathbb{F}_p^\times}(-r_-^2) = \alpha(p)$ |
 | Lemma 3.2 (a) | $\mathbb{F}_p$ and $\mathbb{Z}/4\mathbb{Z}$ | Splitting of $x^2 - x - 1$, $p \equiv 3 \pmod 4$, and $\{\chi_p(r_+), \chi_p(r_-)\} = \{+1, -1\}$ |
-| Lemma 3.2 (b) | $\mathbb{F}_p^\times$ (multiplicative group) | Primitivity of the nonresidue root: $\operatorname{ord}_{\mathbb{F}_p^\times}(r_-) = p - 1$ |
+| Lemma 3.2 (b) | $\mathbb{F}_p^\times$ (multiplicative group) | Primitivity of the nonresidue root: $\mathrm{ord}_{\mathbb{F}_p^\times}(r_-) = p - 1$ |
 | Proposition 5.1 | $\mathbb{Z}$ (integer character sums) | Structural reduction: $S(p) = \chi_p(r_- - r_+)$ |
 | Lemma 6.3 | $\{\pm 1\}$ (quadratic character) | Cyclotomic sign law: $\chi_p(r_- - r_+) = +1$ ($11 \bmod 20$) or $-1$ ($19 \bmod 20$) |
 | Theorem 1.1 | $\mathbb{Z}$ (integer character sums) | Closed-form evaluation: $S(p) = +1$ ($11 \bmod 20$) or $-1$ ($19 \bmod 20$) |
@@ -219,7 +219,7 @@ The verification suite (`Fibchar_v1-0-1.py`) independently tests each intermedia
 
 The corresponding algebraic chain verified per prime is:
 
-$$\boxed{\begin{aligned} \alpha(p) = p - 1 &\Longrightarrow \chi_p(5) = +1 \text{ and } \chi_p(-1) = -1 \quad \bigl(p \equiv 11, 19 \pmod{20}\bigr) \\ &\Longrightarrow \chi_p(r_+) = +1,\ \chi_p(r_-) = -1 \quad \bigl(\text{roots in }\mathbb{F}_p^\times\bigr) \\ &\Longrightarrow \operatorname{ord}_{\mathbb{F}_p^\times}(-r_-^2) = \operatorname{ord}_{\mathbb{F}_p^\times}(r_-) = p - 1 \\ &\Longrightarrow S(p) = T_\alpha(p) = \chi_p(r_- - r_+) = \pm 1. \end{aligned}}$$
+$$\boxed{\begin{aligned} \alpha(p) = p - 1 &\Longrightarrow \chi_p(5) = +1 \text{ and } \chi_p(-1) = -1 \quad \bigl(p \equiv 11, 19 \pmod{20}\bigr) \\ &\Longrightarrow \chi_p(r_+) = +1,\ \chi_p(r_-) = -1 \quad \bigl(\text{roots in }\mathbb{F}_p^\times\bigr) \\ &\Longrightarrow \mathrm{ord}_{\mathbb{F}_p^\times}(-r_-^2) = \mathrm{ord}_{\mathbb{F}_p^\times}(r_-) = p - 1 \\ &\Longrightarrow S(p) = T_\alpha(p) = \chi_p(r_- - r_+) = \pm 1. \end{aligned}}$$
 
 ---
 
@@ -246,7 +246,7 @@ graph TD
    Both $\alpha(p)$ and $S(p)$ are computed directly from their definitions before being compared against the theoretical predictions of Theorem 1.1.
 
 2. **Multi-layer algebraic auditing**  
-   Beyond checking the final value $S(p) = \pm 1$, the code independently extracts the roots $r_+, r_- \in \mathbb{F}_p$ via Tonelli–Shanks and verifies every intermediate lemma ($\operatorname{ord}_{\mathbb{F}_p^\times}(-r_-^2) = p - 1$, $\operatorname{ord}_{\mathbb{F}_p^\times}(r_-) = p - 1$, and $\chi_p(r_- - r_+)$).
+   Beyond checking the final value $S(p) = \pm 1$, the code independently extracts the roots $r_+, r_- \in \mathbb{F}_p$ via Tonelli–Shanks and verifies every intermediate lemma ($\mathrm{ord}_{\mathbb{F}_p^\times}(-r_-^2) = p - 1$, $\mathrm{ord}_{\mathbb{F}_p^\times}(r_-) = p - 1$, and $\chi_p(r_- - r_+)$).
 
 3. **Immutable frozen core**  
    `code/Fibchar_v1-0-1.py` is frozen with a verified SHA-256 digest and permanent Zenodo DOI, serving as the foundational module for this project and companion studies.
@@ -364,7 +364,7 @@ Across all $\pi^* = 148{,}931$ primes $p \le 2 \times 10^6$ with $p \nmid 10$ (w
 
 $$55{,}765 = \underbrace{26{,}407}_{\mathcal{F}^+\text{ (split, }\alpha(p)=p-1\text{)}} + \underbrace{29{,}358}_{\mathcal{F}^-\text{ (inert, }\alpha(p)=p+1\text{)}}.$$
 
-| $c \pmod{20}$ | Branch | Maximal-Rank Condition | Count | $\# / (A\pi^*)$ | GRH Predicted ($c_i / 19$) |
+| $c \pmod{20}$ | Branch | Maximal-Rank Condition | Count ($N_c$) | $N_c / (A\pi^*)$ | GRH Predicted ($c_i / 19$) |
 |:--:|:--:|:--:|--:|:--:|:--:|
 | $3$ | Inert ($\mathcal{F}^-$) | $\alpha(p) = p + 1$ | $14{,}656$ | $0.2632$ | $5/19 \approx 0.2632$ |
 | $7$ | Inert ($\mathcal{F}^-$) | $\alpha(p) = p + 1$ | $14{,}702$ | $0.2640$ | $5/19 \approx 0.2632$ |
@@ -497,7 +497,7 @@ Bibliographic hash records and DOI resolution logs for all $42$ manuscript refer
 > These distinctions govern the mathematical and archival interpretation of this repository.
 
 1. **Unconditional evaluation versus conditional natural density**  
-   Theorem 1.1 ($S(p) = \pm 1$ for $\alpha(p) = p - 1$) is proved **unconditionally**. The natural-density asymptotics in Section 9 ($\operatorname{den}(\mathcal{F}^+) = \frac{9A}{19}$ and $C_F = \frac{18A}{19}$) are proved **conditionally under GRH** for the Dedekind zeta functions $\zeta_{L_d}(s)$ of $L_d = E_d\mathbb{Q}(\zeta_{20})$ (while the large-prime rank-index tail in Lemma 9.18 is bounded unconditionally).
+   Theorem 1.1 ($S(p) = \pm 1$ for $\alpha(p) = p - 1$) is proved **unconditionally**. The natural-density asymptotics in Section 9 ($\mathrm{den}(\mathcal{F}^+) = \frac{9A}{19}$ and $C_F = \frac{18A}{19}$) are proved **conditionally under GRH** for the Dedekind zeta functions $\zeta_{L_d}(s)$ of $L_d = E_d\mathbb{Q}(\zeta_{20})$ (while the large-prime rank-index tail in Lemma 9.18 is bounded unconditionally).
 
 2. **Absolute natural density versus relative split density**  
    The constant $\frac{9A}{19} \approx 0.177137$ is the natural density of the split full-rank primes among *all* rational primes, whereas $C_F = \frac{18A}{19} \approx 0.354274$ is their relative natural density within the set of primes splitting in $\mathbb{Q}(\sqrt{5})$ (which itself has natural density $\frac{1}{2}$).
